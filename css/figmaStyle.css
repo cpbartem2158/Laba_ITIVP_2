@@ -1,0 +1,1777 @@
+/* Homepage */
+
+:root {
+    position: relative;
+    width: 1920px;
+    height: 2697px;
+
+    /* background */
+    background: #EAEFF8;
+
+
+    /* header */
+
+    position: absolute;
+    width: 1920px;
+    height: 700px;
+    left: 0px;
+    top: 0px;
+
+
+
+    /* Rectangle 3 */
+
+    position: absolute;
+    width: 1920px;
+    height: 594px;
+    left: 0px;
+    top: 106px;
+
+    background: url(image.png);
+
+
+    /* Rectangle 2 */
+
+    position: absolute;
+    width: 1920px;
+    height: 106px;
+    left: 0px;
+    top: 0px;
+
+    background: #FFFFFF;
+
+
+    /* Group 1 */
+
+    position: absolute;
+    width: 1676px;
+    height: 66px;
+    left: 121px;
+    top: 20px;
+
+
+
+    /* menu */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 41px;
+
+    position: absolute;
+    width: 667px;
+    height: 25px;
+    left: 545px;
+    top: 39px;
+
+
+
+    /* О платформе */
+
+    width: 173px;
+    height: 25px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Курсы */
+
+    width: 78px;
+    height: 25px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+    /* Преподаватели */
+
+    width: 198px;
+    height: 25px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+
+    /* Отзывы */
+
+    width: 95px;
+    height: 25px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+
+
+    /* Frame 6 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 5px;
+
+    position: absolute;
+    width: 297px;
+    height: 48px;
+    left: 121px;
+    top: 27px;
+
+
+
+    /* material-symbols:school-outline-rounded */
+
+    width: 42px;
+    height: 42px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Vector */
+
+    position: absolute;
+    left: 8.65%;
+    right: 4.17%;
+    top: 13.65%;
+    bottom: 13.65%;
+
+    background: #2344B0;
+
+
+    /* EduPlatform */
+
+    width: 250px;
+    height: 48px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 48px;
+
+    background: linear-gradient(90deg, #2344B0 0%, #05207A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 24px;
+    gap: 10px;
+
+    position: absolute;
+    width: 323px;
+    height: 66px;
+    left: 1474px;
+    top: 20px;
+
+    background: #1553AC;
+    border-radius: 10px;
+
+
+    /* Связаться с нами */
+
+    width: 275px;
+    height: 30px;
+
+    /* btn */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Frame 3 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 24px;
+    gap: 10px;
+
+    position: absolute;
+    width: 311px;
+    height: 66px;
+    left: 120px;
+    top: 519px;
+
+    background: #1553AC;
+    border-radius: 10px;
+
+
+    /* Начать обучение */
+
+    width: 263px;
+    height: 30px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Frame 4 */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 24px;
+    gap: 10px;
+
+    position: absolute;
+    width: 336px;
+    height: 66px;
+    left: 454px;
+    top: 519px;
+
+    background: #FFFFFF;
+    border: 2px solid #1553AC;
+    border-radius: 10px;
+
+
+    /* Посмотреть курсы */
+
+    width: 288px;
+    height: 30px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* EduPlatform — учись онлайн. Развивайся быстрее. */
+
+    position: absolute;
+    width: 927px;
+    height: 120px;
+    left: 120px;
+    top: 207px;
+
+    /* h1 */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+
+    color: #000000;
+
+
+
+    /* Rectangle 11 */
+
+    position: absolute;
+    width: 1920px;
+    height: 519px;
+    left: 0px;
+    top: 1183px;
+
+    background: #001F48;
+
+
+    /* Rectangle 15 */
+
+    position: absolute;
+    width: 1920px;
+    height: 381px;
+    left: 0px;
+    top: 2316px;
+
+    background: #001F48;
+
+
+    /* Frame 12 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 24px;
+    gap: 10px;
+
+    position: absolute;
+    width: 405px;
+    height: 48px;
+    left: 1112px;
+    top: 2474px;
+
+    background: #1553AC;
+    border-radius: 10px;
+
+
+    /* Заказать звонок */
+
+    width: 216px;
+    height: 25px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Frame 195 */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 405px;
+    height: 48px;
+    left: 1112px;
+    top: 2416px;
+
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+
+
+    /* Ваш телефон */
+
+    width: 118px;
+    height: 17px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* menu */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+
+    position: absolute;
+    width: 198px;
+    height: 130px;
+    left: 545px;
+    top: 2372px;
+
+
+
+    /* О платформе */
+
+    width: 173px;
+    height: 25px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Курсы */
+
+    width: 78px;
+    height: 25px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+    /* Преподаватели */
+
+    width: 198px;
+    height: 25px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+
+    /* Отзывы */
+
+    width: 95px;
+    height: 25px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+
+
+    /* Заявка на обратный звонок */
+
+    position: absolute;
+    width: 346px;
+    height: 25px;
+    left: 1112px;
+    top: 2371px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+
+    /* Frame 7 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 5px;
+
+    position: absolute;
+    width: 297px;
+    height: 48px;
+    left: 120px;
+    top: 2357px;
+
+
+
+    /* material-symbols:school-outline-rounded */
+
+    width: 42px;
+    height: 42px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Vector */
+
+    position: absolute;
+    left: 8.65%;
+    right: 4.17%;
+    top: 13.65%;
+    bottom: 13.65%;
+
+    background: #FFFFFF;
+
+
+    /* EduPlatform */
+
+    width: 250px;
+    height: 48px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+    /* Современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают. */
+
+    position: absolute;
+    width: 972px;
+    height: 102px;
+    left: 120px;
+    top: 367px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 140%;
+    /* or 34px */
+
+    color: #1D1D1D;
+
+
+
+    /* Rectangle 1 */
+
+    position: absolute;
+    width: 688px;
+    height: 492px;
+    left: 1112px;
+    top: 159px;
+
+    background: url(image.png);
+    border-radius: 10px;
+
+
+    /* Rectangle 12 */
+
+    position: absolute;
+    width: 547px;
+    height: 310px;
+    left: 1253px;
+    top: 1313px;
+
+    background: url(image.png);
+    border-radius: 10px;
+
+
+    /* Кому подойдёт EduPlatform */
+
+    position: absolute;
+    width: 662px;
+    height: 45px;
+    left: calc(50% - 662px/2);
+    top: 800px;
+
+    /* h2 */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    /* identical to box height */
+
+    color: #000000;
+
+
+
+    /* Почему EduPlatform */
+
+    position: absolute;
+    width: 480px;
+    height: 44px;
+    left: calc(50% - 480px/2);
+    top: 1230px;
+
+    /* h2 */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+
+    color: #FFFFFF;
+
+
+
+    /* Как проходит обучение */
+
+    position: absolute;
+    width: 556px;
+    height: 44px;
+    left: calc(50% - 556px/2 - 562px);
+    top: 1802px;
+
+    /* h2 */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+
+    color: #000000;
+
+
+
+    /* Rectangle 8 */
+
+    position: absolute;
+    width: 547px;
+    height: 202px;
+    left: 120px;
+    top: 905px;
+
+    background: #FFFFFF;
+    border-radius: 20px;
+
+
+    /* Для школьников */
+
+    position: absolute;
+    width: 203px;
+    height: 29px;
+    left: 726px;
+    top: 934px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    color: #000000;
+
+
+
+    /* Rectangle 9 */
+
+    position: absolute;
+    width: 547px;
+    height: 202px;
+    left: 687px;
+    top: 905px;
+
+    background: #FFFFFF;
+    border-radius: 20px;
+
+
+    /* Для школьников */
+
+    position: absolute;
+    width: 276px;
+    height: 30px;
+    left: 150px;
+    top: 935px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+
+    color: #002D6D;
+
+
+
+    /* Подготовка к экзаменам, развитие логики, IT и soft skills. */
+
+    position: absolute;
+    width: 482px;
+    height: 44px;
+    left: 150px;
+    top: 995px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #000000;
+
+
+
+    /* Практические курсы, которые дополняют вузовскую программу и помогают с карьерой. */
+
+    position: absolute;
+    width: 482px;
+    height: 66px;
+    left: 717px;
+    top: 995px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #171717;
+
+
+
+    /* Для студентов */
+
+    position: absolute;
+    width: 233px;
+    height: 30px;
+    left: 717px;
+    top: 935px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+
+    color: #002D6D;
+
+
+
+    /* Rectangle 10 */
+
+    position: absolute;
+    width: 547px;
+    height: 202px;
+    left: 1254px;
+    top: 905px;
+
+    background: #FFFFFF;
+    border-radius: 20px;
+
+
+    /* Повышение квалификации, новые профессии и актуальные навыки для рынка труда. */
+
+    position: absolute;
+    width: 482px;
+    height: 66px;
+    left: 1284px;
+    top: 995px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #171717;
+
+
+
+    /* Для специалистов */
+
+    position: absolute;
+    width: 323px;
+    height: 30px;
+    left: 1284px;
+    top: 935px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+
+    color: #002D6D;
+
+
+
+    /* Frame 8 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+
+    position: absolute;
+    width: 405px;
+    height: 99px;
+    left: 120px;
+    top: 1336px;
+
+
+
+    /* Frame 7 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 13px;
+
+    width: 405px;
+    height: 35px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+
+    /* icomoon-free:checkbox-checked */
+
+    width: 35px;
+    height: 35px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Vector */
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    background: #006AFF;
+
+
+    /* Актуальные программы */
+
+    width: 405px;
+    height: 29px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+    /* Курсы обновляются под требования рынка */
+
+    width: 405px;
+    height: 44px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+
+    /* Frame 9 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+
+    position: absolute;
+    width: 405px;
+    height: 77px;
+    left: 120px;
+    top: 1512px;
+
+
+
+    /* Frame 7 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 13px;
+
+    width: 405px;
+    height: 35px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+
+    /* icomoon-free:checkbox-checked */
+
+    width: 35px;
+    height: 35px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Vector */
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    background: #006AFF;
+
+
+    /* Эксперты-практики */
+
+    width: 405px;
+    height: 29px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+    /* Преподаватели с реальным опытом */
+
+    width: 405px;
+    height: 22px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+
+    /* Frame 10 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+
+    position: absolute;
+    width: 405px;
+    height: 99px;
+    left: 687px;
+    top: 1333px;
+
+
+
+    /* Frame 7 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 13px;
+
+    width: 405px;
+    height: 35px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+
+    /* icomoon-free:checkbox-checked */
+
+    width: 35px;
+    height: 35px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Vector */
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    background: #006AFF;
+
+
+    /* Результат */
+
+    width: 405px;
+    height: 29px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+    /* Навыки, которые можно применять сразу */
+
+    width: 405px;
+    height: 44px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+
+    /* Frame 11 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+
+    position: absolute;
+    width: 405px;
+    height: 77px;
+    left: 687px;
+    top: 1512px;
+
+
+
+    /* Frame 7 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 13px;
+
+    width: 405px;
+    height: 35px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+
+    /* icomoon-free:checkbox-checked */
+
+    width: 35px;
+    height: 35px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* Vector */
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    background: #006AFF;
+
+
+    /* Гибкий график */
+
+    width: 405px;
+    height: 29px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+    /* Учись в удобное время */
+
+    width: 405px;
+    height: 22px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+
+    /* Выбираешь курс */
+
+    position: absolute;
+    width: 291px;
+    height: 34px;
+    left: 120px;
+    top: 1886px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 140%;
+    /* identical to box height, or 34px */
+
+    color: #000000;
+
+
+
+    /* Смотришь видео и выполняешь задания */
+
+    position: absolute;
+    width: 638px;
+    height: 34px;
+    left: 120px;
+    top: 1940px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 140%;
+    /* identical to box height, or 34px */
+
+    color: #000000;
+
+
+
+    /* Получаешь обратную связь */
+
+    position: absolute;
+    width: 638px;
+    height: 34px;
+    left: 120px;
+    top: 1994px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 140%;
+    /* identical to box height, or 34px */
+
+    color: #000000;
+
+
+
+    /* Закрепляешь навыки на практике */
+
+    position: absolute;
+    width: 638px;
+    height: 34px;
+    left: 120px;
+    top: 2048px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 140%;
+    /* identical to box height, or 34px */
+
+    color: #000000;
+
+
+
+    /* Получаешь сертификат */
+
+    position: absolute;
+    width: 638px;
+    height: 34px;
+    left: 120px;
+    top: 2102px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 140%;
+    /* identical to box height, or 34px */
+
+    color: #000000;
+
+
+
+    /* Rectangle 13 */
+
+    position: absolute;
+    width: 688px;
+    height: 196px;
+    left: 1112px;
+    top: 1815px;
+
+    background: linear-gradient(90deg, #F7F8FC 0%, #F4F6FD 100%);
+    border-radius: 5px;
+
+
+    /* Прошел курс по веб-разработке и уже через месяц взял первый заказ */
+
+    position: absolute;
+    width: 614px;
+    height: 47px;
+    left: 1142px;
+    top: 1931px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #000000;
+
+
+
+    /* 02.10.2026 */
+
+    position: absolute;
+    width: 96px;
+    height: 14px;
+    left: 1674px;
+    top: 1855px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #000000;
+
+
+
+    /* Rectangle 14 */
+
+    position: absolute;
+    width: 688px;
+    height: 196px;
+    left: 1112px;
+    top: 2032px;
+
+    background: linear-gradient(90deg, #F7F8FC 0%, #F4F6FD 100%);
+    border-radius: 5px;
+
+
+    /* 10.05.2026 */
+
+    position: absolute;
+    width: 96px;
+    height: 14px;
+    left: 1674px;
+    top: 2072px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #000000;
+
+
+
+    /* Отличная платформа — всё структурировано и без воды */
+
+    position: absolute;
+    width: 614px;
+    height: 47px;
+    left: 1142px;
+    top: 2148px;
+
+    /* p */
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #000000;
+
+
+
+    /* Group 2 */
+
+    position: absolute;
+    width: 118px;
+    height: 22px;
+    left: 1142px;
+    top: 1884px;
+
+
+
+    /* Star 1 */
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1142px;
+    top: 1884px;
+
+    background: #FFDA07;
+
+
+    /* Star 2 */
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1166px;
+    top: 1884px;
+
+    background: #FFDA07;
+
+
+    /* Star 3 */
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1190px;
+    top: 1884px;
+
+    background: #FFDA07;
+
+
+    /* Star 4 */
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1214px;
+    top: 1884px;
+
+    background: #FFDA07;
+
+
+    /* Star 5 */
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1238px;
+    top: 1884px;
+
+    background: #FFDA07;
+
+
+    /* Group 3 */
+
+    position: absolute;
+    width: 118px;
+    height: 22px;
+    left: 1142px;
+    top: 2101px;
+
+
+
+    /* Star 1 */
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1142px;
+    top: 2101px;
+
+    background: #FFDA07;
+
+
+    /* Star 2 */
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1166px;
+    top: 2101px;
+
+    background: #FFDA07;
+
+
+    /* Star 3 */
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1190px;
+    top: 2101px;
+
+    background: #FFDA07;
+
+
+    /* Star 4 */
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1214px;
+    top: 2101px;
+
+    background: #FFDA07;
+
+
+    /* Star 5 */
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 1238px;
+    top: 2101px;
+
+    background: #FFDA07;
+
+
+    /* Артем Аникейчик */
+
+    position: absolute;
+    width: 262px;
+    height: 34px;
+    left: 1142px;
+    top: 1845px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 140%;
+    /* identical to box height, or 34px */
+
+    color: #000000;
+
+
+
+    /* Ярослав Бельмач */
+
+    position: absolute;
+    width: 265px;
+    height: 34px;
+    left: 1142px;
+    top: 2062px;
+
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 140%;
+    /* identical to box height, or 34px */
+
+    color: #000000;
+
+
+
+    /* Frame 5 */
+
+    position: relative;
+    width: 549px;
+    height: 571px;
+
+    background: #FFFFFF;
+
+
+    /* UI KIT */
+
+    position: absolute;
+    width: 156px;
+    height: 65px;
+    left: 196px;
+    top: 19px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 54px;
+    line-height: 65px;
+
+    color: #000000;
+
+
+
+    /* Unbounded */
+
+    position: absolute;
+    width: 138px;
+    height: 29px;
+    left: 45px;
+    top: 132px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    color: #000000;
+
+
+
+    /* Rectangle 4 */
+
+    position: absolute;
+    width: 67px;
+    height: 67px;
+    left: 53px;
+    top: 210px;
+
+    background: #006AFF;
+
+
+    /* Rectangle 5 */
+
+    position: absolute;
+    width: 67px;
+    height: 67px;
+    left: 129px;
+    top: 210px;
+
+    background: #000000;
+
+
+    /* Rectangle 7 */
+
+    position: absolute;
+    width: 67px;
+    height: 67px;
+    left: 207px;
+    top: 210px;
+
+    /* background */
+    background: #EAEFF8;
+}
