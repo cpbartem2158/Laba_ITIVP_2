@@ -4,62 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EduPlatform — современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Unbounded:wght@300;400;600;700&display=swap" rel="stylesheet">
     <title>EduPlatform — учись онлайн. Развивайся быстрее.</title>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "@id": "#organization",
-      "name": "EduPlatform",
-      "description": "Современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 5,
-        "bestRating": 5,
-        "worstRating": 1,
-        "ratingCount": 2,
-        "reviewCount": 2
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "itemReviewed": { "@id": "#organization" },
-          "author": {
-            "@type": "Person",
-            "name": "Артем Аникейчик"
-          },
-          "datePublished": "2026-10-02",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": 5,
-            "bestRating": 5,
-            "worstRating": 1
-          },
-          "reviewBody": "Прошел курс по веб-разработке и уже через месяц взял первый заказ"
-        },
-        {
-          "@type": "Review",
-          "itemReviewed": { "@id": "#organization" },
-          "author": {
-            "@type": "Person",
-            "name": "Ярослав Бельмач"
-          },
-          "datePublished": "2026-05-10",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": 5,
-            "bestRating": 5,
-            "worstRating": 1
-          },
-          "reviewBody": "Отличная платформа — всё структурировано и без воды"
-        }
-      ]
-    }
-    </script>
+
 </head>
 <body>
     <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
@@ -100,7 +50,6 @@
                 </div>
             </figure>
         </section>
-
         <section class="audience" id="about" aria-labelledby="audience-title">
             <h2 id="audience-title" class="section-title">Кому подойдёт EduPlatform</h2>
             <ul class="audience__list">
@@ -172,6 +121,12 @@
             <aside class="process__testimonials" id="reviews" aria-label="Отзывы студентов">
                 <div itemscope itemtype="https://schema.org/EducationalOrganization" itemid="#organization" hidden>
                     <meta itemprop="name" content="EduPlatform">
+                    <meta itemprop="description" content="EduPlatform — современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.">
+                </div>
+                <div itemscope itemtype="https://schema.org/Course" hidden>
+                    <meta itemprop="name" content="Онлайн-курсы EduPlatform">
+                    <meta itemprop="description" content="EduPlatform — современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.">
+                    <link itemprop="provider" href="#organization">
                 </div>
                 <article class="testimonial" itemscope itemtype="https://schema.org/Review">
                     <link itemprop="itemReviewed" href="#organization">
