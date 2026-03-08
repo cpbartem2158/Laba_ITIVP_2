@@ -1,0 +1,32 @@
+/* ============================================
+   variables.css — CSS-переменные проекта
+   ============================================ */
+
+:root {
+    /* Цвета */
+    --color-primary: #1553AC;
+    --color-primary-alt: #2344B0;
+    --color-primary-dark: #05207A;
+    --color-accent: #006AFF;
+    --color-text: #000000;
+    --color-text-muted: #1D1D1D;
+    --color-text-light: #171717;
+    --color-bg: #EAEFF8;
+    --color-bg-dark: #001F48;
+    --color-bg-card: #FFFFFF;
+    --color-border: #1553AC;
+    --color-star: #FFDA07;
+
+    /* Типографика */
+    --font-primary: 'Unbounded', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+
+    /* Скругления */
+    --radius-sm: 5px;
+    --radius-md: 10px;
+    --radius-lg: 20px;
+
+    /* Контейнер */
+    --container-max: 1676px;
+    --container-padding: 120px;
+}

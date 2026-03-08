@@ -1,4 +1,4 @@
-Font – Unbounded
+Font – Unbounded, Inter
 Blue – #006AFF
 Black – #000000
 Gray (background) – #EAEFF8

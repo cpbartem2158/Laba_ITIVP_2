@@ -1,0 +1,176 @@
+/* ============================================
+   footer.css — подвал сайта
+   ============================================ */
+
+.footer {
+    background: var(--color-bg-dark);
+    padding: 60px var(--container-padding) 24px;
+}
+
+.footer__container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: 60px 120px;
+}
+
+/* Логотип */
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer__logo:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.footer__brand-name {
+    font-family: var(--font-secondary);
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 48px;
+    color: #FFFFFF;
+}
+
+/* Навигация */
+.footer__nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__nav a {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+
+.footer__nav a:hover {
+    opacity: 0.8;
+}
+
+.footer__nav a:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Форма обратного звонка */
+.footer__callback {
+    width: 405px;
+    flex-shrink: 0;
+}
+
+.footer__callback-title {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+.footer__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__input {
+    padding: 14px 10px;
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: var(--radius-md);
+    transition: border-color 0.2s;
+}
+
+.footer__input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.footer__input::placeholder {
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.footer__submit {
+    padding: 18px 24px;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+/* Копирайт */
+.footer__copyright {
+    max-width: var(--container-max);
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-family: var(--font-secondary);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+/* ============================================
+   Адаптив — планшет (max-width: 1200px)
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .footer__container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer__callback {
+        width: 100%;
+        max-width: 405px;
+    }
+
+    .footer__brand-name {
+        font-size: 30px;
+    }
+}
+
+/* ============================================
+   Адаптив — мобильный (max-width: 600px)
+   ============================================ */
+
+@media (max-width: 600px) {
+    .footer {
+        padding: 40px var(--container-padding) 20px;
+    }
+
+    .footer__brand-name {
+        font-size: 24px;
+    }
+
+    .footer__nav a {
+        font-size: 16px;
+    }
+
+    .footer__callback {
+        max-width: 100%;
+    }
+
+    .footer__submit {
+        font-size: 16px;
+        padding: 14px 20px;
+    }
+
+    .footer__copyright {
+        font-size: 12px;
+        margin-top: 24px;
+    }
+}

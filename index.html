@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EduPlatform — современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Unbounded:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -28,33 +28,17 @@
         {
           "@type": "Review",
           "itemReviewed": { "@id": "#organization" },
-          "author": {
-            "@type": "Person",
-            "name": "Артем Аникейчик"
-          },
+          "author": { "@type": "Person", "name": "Артем Аникейчик" },
           "datePublished": "2026-10-02",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": 5,
-            "bestRating": 5,
-            "worstRating": 1
-          },
+          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
           "reviewBody": "Прошел курс по веб-разработке и уже через месяц взял первый заказ"
         },
         {
           "@type": "Review",
           "itemReviewed": { "@id": "#organization" },
-          "author": {
-            "@type": "Person",
-            "name": "Ярослав Бельмач"
-          },
+          "author": { "@type": "Person", "name": "Ярослав Бельмач" },
           "datePublished": "2026-05-10",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": 5,
-            "bestRating": 5,
-            "worstRating": 1
-          },
+          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
           "reviewBody": "Отличная платформа — всё структурировано и без воды"
         }
       ]
@@ -72,7 +56,8 @@
                     <span class="header__brand-name">EduPlatform</span>
                 </a>
             </div>
-            <nav class="header__nav" aria-label="Основная навигация">
+
+            <nav class="header__nav" id="main-nav" aria-label="Основная навигация">
                 <ul class="header__nav-list">
                     <li><a href="#about">О платформе</a></li>
                     <li><a href="#courses">Курсы</a></li>
@@ -80,7 +65,21 @@
                     <li><a href="#reviews">Отзывы</a></li>
                 </ul>
             </nav>
+
             <a href="#contact" class="header__cta button button--primary">Связаться с нами</a>
+
+            <!-- Бургер-кнопка (видна только на мобилках) -->
+            <button
+                class="header__burger"
+                id="burger-btn"
+                aria-controls="main-nav"
+                aria-expanded="false"
+                aria-label="Открыть меню"
+            >
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+            </button>
         </div>
     </header>
 
@@ -126,7 +125,10 @@
         </section>
 
         <section class="advantages" id="courses" aria-labelledby="advantages-title">
-            <h2 id="advantages-title" class="section-title section-title--light">Почему EduPlatform</h2>
+    <h2 id="advantages-title" class="section-title section-title--light">Почему EduPlatform</h2>
+    
+    <div class="advantages__row">
+        <div class="advantages__content">
             <ul class="advantages__list">
                 <li class="advantages__item">
                     <article>
@@ -153,12 +155,15 @@
                     </article>
                 </li>
             </ul>
-            <figure class="advantages__image">
-                <div class="advantages__image-placeholder" role="img" aria-label="Преимущества обучения">
-                    <img src="images/advantages-image.svg" alt="Преимущества обучения" width="547" height="310">
-                </div>
-            </figure>
-        </section>
+        </div>
+        
+        <figure class="advantages__image">
+            <div class="advantages__image-placeholder" role="img" aria-label="Преимущества обучения">
+                <img src="images/advantages-image.svg" alt="Преимущества обучения" width="547" height="310">
+            </div>
+        </figure>
+    </div>
+</section>
 
         <section class="process" id="teachers" aria-labelledby="process-title">
             <h2 id="process-title" class="section-title">Как проходит обучение</h2>
@@ -209,7 +214,6 @@
                 </article>
             </aside>
         </section>
-
     </main>
 
     <footer class="footer" id="contact">
@@ -239,5 +243,28 @@
         </div>
         <p class="footer__copyright">© EduPlatform. Все права защищены.</p>
     </footer>
+
+    <!-- Скрипт бургер-меню -->
+    <script>
+        const burgerBtn = document.getElementById('burger-btn');
+        const mainNav = document.getElementById('main-nav');
+
+        burgerBtn.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('header__nav--open');
+            burgerBtn.classList.toggle('header__burger--active', isOpen);
+            burgerBtn.setAttribute('aria-expanded', isOpen);
+            burgerBtn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+        });
+
+        // Закрываем меню при клике на ссылку
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('header__nav--open');
+                burgerBtn.classList.remove('header__burger--active');
+                burgerBtn.setAttribute('aria-expanded', 'false');
+                burgerBtn.setAttribute('aria-label', 'Открыть меню');
+            });
+        });
+    </script>
 </body>
 </html>
