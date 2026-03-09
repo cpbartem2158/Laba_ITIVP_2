@@ -1,22 +1,17 @@
-/* ============================================
-   footer.css — подвал сайта
-   ============================================ */
-
 .footer {
     background: var(--color-bg-dark);
-    padding: 60px var(--container-padding) 24px;
+    padding: 40px var(--container-padding) 20px;
 }
 
 .footer__container {
     max-width: var(--container-max);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr;
     align-items: start;
-    gap: 60px 120px;
+    gap: 24px;
 }
 
-/* Логотип */
 .footer__logo {
     display: flex;
     align-items: center;
@@ -32,12 +27,11 @@
 .footer__brand-name {
     font-family: var(--font-secondary);
     font-weight: 900;
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 24px;
+    line-height: 1.2;
     color: #FFFFFF;
 }
 
-/* Навигация */
 .footer__nav-list {
     display: flex;
     flex-direction: column;
@@ -46,8 +40,8 @@
 
 .footer__nav a {
     font-family: var(--font-primary);
-    font-size: 20px;
-    line-height: 25px;
+    font-size: 16px;
+    line-height: 1.25;
     color: #FFFFFF;
 }
 
@@ -61,19 +55,18 @@
     border-radius: 4px;
 }
 
-/* Форма обратного звонка */
 .footer__callback {
-    width: 405px;
-    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
 }
 
 .footer__callback-title {
     font-family: var(--font-primary);
     font-weight: 400;
-    font-size: 20px;
-    line-height: 25px;
+    font-size: 18px;
+    line-height: 1.25;
     color: #FFFFFF;
-    margin-bottom: 25px;
+    margin-bottom: 16px;
 }
 
 .footer__form {
@@ -83,7 +76,7 @@
 }
 
 .footer__input {
-    padding: 14px 10px;
+    padding: 12px 10px;
     font-family: var(--font-primary);
     font-weight: 300;
     font-size: 14px;
@@ -106,71 +99,97 @@
 }
 
 .footer__submit {
-    padding: 18px 24px;
-    font-size: 20px;
-    line-height: 25px;
+    padding: 14px 20px;
+    font-size: 16px;
+    line-height: 1.25;
 }
 
-/* Копирайт */
 .footer__copyright {
     max-width: var(--container-max);
-    margin: 40px auto 0;
-    padding-top: 24px;
+    margin: 24px auto 0;
+    padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
     font-family: var(--font-secondary);
-    font-size: 14px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
 }
 
-/* ============================================
-   Адаптив — планшет (max-width: 1200px)
-   ============================================ */
 
-@media (max-width: 1200px) {
-    .footer__container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
+@media (min-width: 601px) {
     .footer__callback {
-        width: 100%;
         max-width: 405px;
     }
 
-    .footer__brand-name {
-        font-size: 30px;
+    .footer__submit {
+        font-size: 18px;
+        padding: 16px 22px;
     }
 }
 
-/* ============================================
-   Адаптив — мобильный (max-width: 600px)
-   ============================================ */
 
-@media (max-width: 600px) {
+@media (min-width: 769px) {
     .footer {
-        padding: 40px var(--container-padding) 20px;
+        padding: 48px var(--container-padding) 24px;
+    }
+
+    .footer__container {
+        gap: 32px;
     }
 
     .footer__brand-name {
-        font-size: 24px;
+        font-size: 28px;
+        line-height: 48px;
     }
 
     .footer__nav a {
-        font-size: 16px;
+        font-size: 18px;
     }
 
-    .footer__callback {
-        max-width: 100%;
+    .footer__callback-title {
+        font-size: 20px;
+        margin-bottom: 25px;
     }
 
     .footer__submit {
-        font-size: 16px;
-        padding: 14px 20px;
+        font-size: 20px;
+        line-height: 25px;
+        padding: 18px 24px;
     }
 
     .footer__copyright {
-        font-size: 12px;
-        margin-top: 24px;
+        font-size: 14px;
+        margin-top: 32px;
+    }
+}
+
+@media (min-width: 1201px) {
+    .footer {
+        padding: 60px var(--container-padding) 24px;
+    }
+
+    .footer__container {
+        grid-template-columns: auto 1fr auto;
+        gap: 60px 120px;
+    }
+
+    .footer__brand-name {
+        font-size: 40px;
+    }
+
+    .footer__nav a {
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .footer__callback {
+        width: 405px;
+        flex-shrink: 0;
+        max-width: 405px;
+    }
+
+    .footer__copyright {
+        margin-top: 40px;
+        padding-top: 24px;
     }
 }

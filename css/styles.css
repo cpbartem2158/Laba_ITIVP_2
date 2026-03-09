@@ -1,13 +1,8 @@
-/* ============================================
-   styles.css — базовые стили + импорт всех файлов
-   ============================================ */
-
 @import url('variables.css');
 @import url('header.css');
 @import url('main.css');
 @import url('footer.css');
 
-/* Reset & base */
 *,
 *::before,
 *::after {
@@ -23,8 +18,9 @@ html {
 body {
     font-family: var(--font-secondary);
     background-color: var(--color-bg);
-    color: var(--coloчr-text);
+    color: var(--color-text);
     line-height: 1.4;
+    overflow-x: hidden;
 }
 
 a {
@@ -43,10 +39,6 @@ img {
     display: block;
 }
 
-/* ============================================
-   Утилиты
-   ============================================ */
-
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -59,22 +51,19 @@ img {
     border: 0;
 }
 
-/* ============================================
-   Кнопки
-   ============================================ */
-
 .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 18px 24px;
+    padding: 12px 16px;
     font-family: var(--font-primary);
     font-weight: 600;
-    font-size: 24px;
-    line-height: 30px;
+    font-size: 16px;
+    line-height: 1.25;
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: opacity 0.2s, transform 0.2s;
+    width: 100%;
 }
 
 .button:hover {
@@ -97,10 +86,6 @@ img {
     border: 2px solid var(--color-primary);
 }
 
-/* ============================================
-   Skip-link (доступность)
-   ============================================ */
-
 .skip-link {
     position: absolute;
     top: -100%;
@@ -122,57 +107,73 @@ img {
     outline: none;
 }
 
-/* ============================================
-   Заголовки секций
-   ============================================ */
-
 .section-title {
     font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 36px;
-    line-height: 45px;
+    font-size: 24px;
+    line-height: 32px;
     text-align: center;
     color: var(--color-text);
-    margin-bottom: 60px;
+    margin-bottom: 32px;
 }
 
 .section-title--light {
     color: #FFFFFF;
 }
 
-/* ============================================
-   Адаптив — планшет (max-width: 1200px)
-   ============================================ */
-
-@media (max-width: 1200px) {
+@media (min-width: 601px) {
     :root {
-        --container-padding: 40px;
+        --container-padding: 24px;
     }
 
     .button {
         font-size: 18px;
         padding: 14px 20px;
-    }
-}
-
-/* ============================================
-   Адаптив — мобильный (max-width: 600px)
-   ============================================ */
-
-@media (max-width: 600px) {
-    :root {
-        --container-padding: 16px;
-    }
-
-    .button {
-        font-size: 16px;
-        padding: 12px 16px;
-        width: 100%;
+        width: auto;
     }
 
     .section-title {
+        font-size: 26px;
+        line-height: 34px;
+        margin-bottom: 40px;
+    }
+
+    .header__cta {
+        order: 2;
+    }
+}
+
+@media (min-width: 769px) {
+    :root {
+        --container-padding: 40px;
+    }
+
+    .button {
+        font-size: 20px;
+        padding: 16px 22px;
+    }
+
+    .section-title {
+        font-size: 30px;
+        line-height: 38px;
+        margin-bottom: 48px;
+    }
+}
+
+@media (min-width: 1201px) {
+    :root {
+        --container-padding: 120px;
+    }
+
+    .button {
         font-size: 24px;
-        line-height: 32px;
-        margin-bottom: 32px;
+        line-height: 30px;
+        padding: 18px 24px;
+    }
+
+    .section-title {
+        font-size: 36px;
+        line-height: 45px;
+        margin-bottom: 60px;
     }
 }

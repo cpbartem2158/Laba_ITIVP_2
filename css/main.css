@@ -1,86 +1,63 @@
-/* ============================================
-   main.css — основной контент страницы
-   ============================================ */
-
-/* ============================================
-   Hero — главный экран
-   ============================================ */
-
 .hero {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 40px;
+    text-align: center;
+    gap: 24px;
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 106px var(--container-padding) 80px;
-    min-height: 594px;
-    background: var(--color-bg) url('../images/hero-bg.png') no-repeat center / cover;
-}
-
-.hero__content {
-    flex: 1;
-    max-width: 927px;
+    padding: 40px var(--container-padding) 40px;
+    background: var(--color-bg);
 }
 
 .hero__title {
     font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 48px;
-    line-height: 60px;
+    font-size: 28px;
+    line-height: 36px;
     color: var(--color-text);
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .hero__description {
     font-family: var(--font-primary);
     font-weight: 300;
-    font-size: 24px;
+    font-size: 16px;
     line-height: 140%;
     color: var(--color-text-muted);
-    margin-bottom: 48px;
+    margin-bottom: 32px;
 }
 
 .hero__actions {
     display: flex;
-    gap: 31px;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
 }
 
 .hero__image {
-    flex-shrink: 0;
-    width: 688px;
+    width: 100%;
     border-radius: var(--radius-md);
     overflow: hidden;
-    margin: 0;
 }
 
 .hero__image img,
 .hero__image-placeholder {
     width: 100%;
-    height: 492px;
-}
-
-.hero__image-placeholder {
-    background: linear-gradient(135deg, #E8EEF7 0%, #D4DCE8 100%);
-}
-
-.hero__image img {
-    height: auto;
+    height: 220px;
     object-fit: cover;
 }
 
-/* ============================================
-   Audience — для кого платформа
-   ============================================ */
+
 
 .audience {
-    padding: 80px var(--container-padding);
+    padding: 40px var(--container-padding);
 }
 
 .audience__list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 16px;
     max-width: var(--container-max);
     margin: 0 auto;
 }
@@ -88,42 +65,51 @@
 .audience__card {
     background: var(--color-bg-card);
     border-radius: var(--radius-lg);
-    padding: 30px;
-    min-height: 202px;
+    padding: 20px;
 }
 
 .audience__card h3 {
     font-family: var(--font-primary);
     font-weight: 600;
-    font-size: 24px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 1.3;
     color: #002D6D;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .audience__card p {
     font-family: var(--font-primary);
     font-weight: 300;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 1.35;
     color: var(--color-text-light);
 }
 
-/* ============================================
-   Advantages — преимущества
-   ============================================ */
+
 
 .advantages {
     background: var(--color-bg-dark);
-    padding: 80px var(--container-padding);
+    padding: 40px var(--container-padding);
+}
+
+.advantages__row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.advantages__content {
+    order: 1;
 }
 
 .advantages__list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 44px 27px;
-    max-width: 1400px;
-    margin: 0 auto 40px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 0;
 }
 
 .advantages__item {
@@ -149,8 +135,8 @@
 .advantages__item h3 {
     font-family: var(--font-secondary);
     font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 18px;
+    line-height: 1.25;
     color: #FFFFFF;
     margin-bottom: 8px;
 }
@@ -158,55 +144,42 @@
 .advantages__item p {
     font-family: var(--font-primary);
     font-weight: 300;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 1.35;
     color: #FFFFFF;
 }
 
 .advantages__image {
-    max-width: 547px;
-    margin: 0;
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
     border-radius: var(--radius-md);
     overflow: hidden;
 }
-.advantages__row {
-    display: flex;           
-    align-items: center;      
-    gap: 40px;                
-    max-width: var(--container-max); 
-    margin: 0 auto;           
-}
-.advantages__content {
-    flex: 1;                 
-}
+
 .advantages__image img,
 .advantages__image-placeholder {
     width: 100%;
-    height: 310px;
-}
-
-.advantages__image-placeholder {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.advantages__image img {
-    height: auto;
+    height: 200px;
     object-fit: cover;
 }
 
-/* ============================================
-   Process — как проходит обучение
-   ============================================ */
+.advantages__image img {
+    height: 200px;
+}
+
+
 
 .process {
-    padding: 80px var(--container-padding);
+    padding: 40px var(--container-padding);
 }
 
 .process__steps {
     max-width: var(--container-max);
-    margin: 0 auto 60px;
+    margin: 0 auto 40px;
     display: grid;
-    gap: 24px;
+    gap: 16px;
     counter-reset: step;
 }
 
@@ -216,7 +189,7 @@
     position: relative;
     font-family: var(--font-primary);
     font-weight: 300;
-    font-size: 24px;
+    font-size: 16px;
     line-height: 140%;
     color: var(--color-text);
 }
@@ -228,48 +201,47 @@
     font-weight: 600;
 }
 
-/* Отзывы */
 .process__testimonials {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 21px;
-    max-width: 1400px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: var(--container-max);
     margin: 0 auto;
 }
 
 .testimonial {
     background: linear-gradient(90deg, #F7F8FC 0%, #F4F6FD 100%);
     border-radius: var(--radius-sm);
-    padding: 30px;
+    padding: 20px;
 }
 
 .testimonial__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .testimonial__rating {
     color: var(--color-star);
-    font-size: 22px;
+    font-size: 18px;
     letter-spacing: 2px;
 }
 
 .testimonial__author {
     font-family: var(--font-primary);
     font-weight: 400;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 140%;
     color: var(--color-text);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .testimonial blockquote {
     font-family: var(--font-primary);
     font-weight: 300;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 15px;
+    line-height: 1.4;
     color: var(--color-text);
 }
 
@@ -277,113 +249,278 @@
     margin: 0;
 }
 
-/* ============================================
-   Адаптив — планшет (max-width: 1200px)
-   ============================================ */
 
-@media (max-width: 1200px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 60px;
-    }
-
-    .hero__image {
-        width: 100%;
-        max-width: 600px;
-    }
-
+@media (min-width: 601px) {
     .hero__actions {
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
+        width: auto;
     }
 
-    .advantages__list {
-        grid-template-columns: 1fr;
-    }
-
-    .process__testimonials {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ============================================
-   Адаптив — мобильный (max-width: 600px)
-   ============================================ */
-
-@media (max-width: 600px) {
-    .hero {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        min-height: auto;
-    }
-
-    .hero__title {
-        font-size: 28px;
-        line-height: 36px;
-        margin-bottom: 24px;
-    }
-
-    .hero__description {
-        font-size: 16px;
-        margin-bottom: 32px;
-    }
-
-    .hero__actions {
-        flex-direction: column;
-        gap: 12px;
+    .hero__actions .button {
+        width: auto;
     }
 
     .hero__image-placeholder,
     .hero__image img {
-        height: 240px;
+        height: 280px;
     }
 
-    .audience {
-        padding: 48px var(--container-padding);
+    .hero__image img {
+        height: 280px;
     }
 
     .audience__list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
     .audience__card {
-        min-height: auto;
-        padding: 20px;
+        padding: 24px;
     }
 
     .audience__card h3 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
-    .advantages {
-        padding: 48px var(--container-padding);
+    .advantages__image-placeholder,
+    .advantages__image img {
+        height: 240px;
     }
 
-    .advantages__list {
-        gap: 24px;
-    }
-
-    .advantages__item h3 {
-        font-size: 18px;
-    }
-
-    .process {
-        padding: 48px var(--container-padding);
+    .advantages__image img {
+        height: 240px;
     }
 
     .process__steps li {
-        font-size: 16px;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 769px) {
+    .hero {
+        padding: 48px var(--container-padding) 48px;
+    }
+
+    .hero__title {
+        font-size: 32px;
+        line-height: 42px;
+        margin-bottom: 28px;
+    }
+
+    .hero__description {
+        font-size: 18px;
+        margin-bottom: 36px;
+    }
+
+    .hero__image-placeholder,
+    .hero__image img {
+        height: 360px;
+    }
+
+    .hero__image img {
+        height: 360px;
+    }
+
+    .hero__image {
+        max-width: 600px;
+    }
+
+    .audience {
+        padding: 60px var(--container-padding);
+    }
+
+    .advantages {
+        padding: 60px var(--container-padding);
+    }
+
+    .advantages__image-placeholder,
+    .advantages__image img {
+        height: 280px;
+    }
+
+    .advantages__image img {
+        height: 280px;
+    }
+
+    .process {
+        padding: 60px var(--container-padding);
+    }
+
+    .process__steps {
+        margin-bottom: 48px;
     }
 
     .testimonial {
-        padding: 20px;
+        padding: 24px;
     }
 
     .testimonial__author {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .testimonial blockquote {
-        font-size: 15px;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1201px) {
+    .hero {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        gap: 40px;
+        padding: 106px var(--container-padding) 80px;
+        min-height: 594px;
+    }
+
+    .hero__content {
+        flex: 1;
+        max-width: 927px;
+    }
+
+    .hero__title {
+        font-size: 48px;
+        line-height: 60px;
+        margin-bottom: 40px;
+    }
+
+    .hero__description {
+        font-size: 24px;
+        margin-bottom: 48px;
+    }
+
+    .hero__actions {
+        justify-content: flex-start;
+        width: auto;
+        gap: 31px;
+    }
+
+    .hero__image {
+        flex-shrink: 0;
+        width: 688px;
+        max-width: 688px;
+        margin: 0;
+    }
+
+    .hero__image-placeholder,
+    .hero__image img {
+        height: 492px;
+    }
+
+    .hero__image img {
+        height: auto;
+    }
+
+    .audience {
+        padding: 80px var(--container-padding);
+    }
+
+    .audience__list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .audience__card {
+        padding: 30px;
+        min-height: 202px;
+    }
+
+    .audience__card h3 {
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+
+    .audience__card p {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .advantages {
+        padding: 80px var(--container-padding);
+    }
+
+    .advantages__row {
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .advantages__content {
+        flex: 1;
+        order: 0;
+    }
+
+    .advantages__list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 44px 27px;
+        max-width: 1400px;
+        margin: 0 auto 40px;
+    }
+
+    .advantages__item h3 {
+        font-size: 24px;
+        line-height: 29px;
+    }
+
+    .advantages__item p {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .advantages__image {
+        order: 0;
+        flex-shrink: 0;
+        max-width: 547px;
+        margin: 0;
+    }
+
+    .advantages__image-placeholder,
+    .advantages__image img {
+        height: 310px;
+    }
+
+    .advantages__image img {
+        height: auto;
+    }
+
+    .process {
+        padding: 80px var(--container-padding);
+    }
+
+    .process__steps {
+        margin-bottom: 60px;
+        gap: 24px;
+    }
+
+    .process__steps li {
+        font-size: 24px;
+    }
+
+    .process__testimonials {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 21px;
+        max-width: 1400px;
+    }
+
+    .testimonial {
+        padding: 30px;
+    }
+
+    .testimonial__rating {
+        font-size: 22px;
+    }
+
+    .testimonial__author {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .testimonial blockquote {
+        font-size: 18px;
+        line-height: 22px;
     }
 }
