@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Курс «Веб-разработка» на EduPlatform: HTML, CSS, адаптивная вёрстка и интерактивные страницы. Уроки, прогресс и проверка знаний.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/course-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Unbounded:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Веб-разработка — курс | EduPlatform</title>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+    <header class="header">
+        <div class="header__container">
+            <div class="header__brand">
+                <a href="index.html" class="header__logo" aria-label="EduPlatform — главная">
+                    <img src="images/logo.svg" alt="" width="42" height="42" aria-hidden="true">
+                    <span class="header__brand-name">EduPlatform</span>
+                </a>
+            </div>
+
+            <nav class="header__nav" id="main-nav" aria-label="Основная навигация">
+                <ul class="header__nav-list">
+                    <li><a href="index.html#about">О платформе</a></li>
+                    <li><a href="index.html#courses">Курсы</a></li>
+                    <li><a href="index.html#teachers">Преподаватели</a></li>
+                    <li><a href="index.html#reviews">Отзывы</a></li>
+                </ul>
+            </nav>
+
+            <a href="index.html#contact" class="header__cta button button--primary">Связаться с нами</a>
+
+            <button
+                class="header__burger"
+                id="burger-btn"
+                aria-controls="main-nav"
+                aria-expanded="false"
+                aria-label="Открыть меню"
+            >
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" class="course-page">
+        <header class="course-page__header">
+            <p class="course-page__breadcrumb">
+                <a href="index.html">Главная</a> / <a href="index.html#courses">Курсы</a> / Веб-разработка
+            </p>
+            <h1 class="course-page__title">Веб-разработка</h1>
+            <p class="course-page__intro">
+                От разметки и семантики до стилей, сеток и интерактива на странице. Проходите уроки в удобном порядке, отмечайте прогресс, сохраняйте интересные темы в закладки и закрепите материал коротким тестом.
+            </p>
+        </header>
+
+        <div class="course-layout">
+            <div class="course-progress">
+                <div class="course-progress__top">
+                    <span class="course-progress__title" id="course-progress-label">Прогресс курса</span>
+                    <span class="course-progress__percent" id="course-progress-percent" aria-hidden="true">0%</span>
+                </div>
+                <div
+                    class="course-progress__track"
+                    id="course-progress-track"
+                    role="progressbar"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    aria-labelledby="course-progress-label"
+                >
+                    <div class="course-progress__fill" id="course-progress-fill"></div>
+                </div>
+                <p class="course-progress__hint">Отмечайте уроки как пройденные внизу каждого блока — индикатор покажет, какая часть курса уже за вами.</p>
+            </div>
+
+            <div class="course-main-row">
+            <aside class="course-sidebar" aria-label="Навигация по урокам">
+                <h2 class="course-sidebar__title">Уроки</h2>
+                <p class="course-sidebar__note">Звёздочка справа добавляет урок в избранное — список сохранится при следующем визите.</p>
+                <ol class="course-lessons">
+                    <li class="course-lessons__item">
+                        <div class="course-lesson-row">
+                            <a class="course-lesson-row__link" href="#lesson-1">1. Введение в HTML</a>
+                            <button
+                                type="button"
+                                class="lesson-bookmark-btn"
+                                data-lesson-id="lesson-1"
+                                aria-pressed="false"
+                                aria-label="Добавить в закладки: Введение в HTML"
+                            >
+                                <span aria-hidden="true">☆</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="course-lessons__item">
+                        <div class="course-lesson-row">
+                            <a class="course-lesson-row__link" href="#lesson-2">2. Семантическая разметка</a>
+                            <button
+                                type="button"
+                                class="lesson-bookmark-btn"
+                                data-lesson-id="lesson-2"
+                                aria-pressed="false"
+                                aria-label="Добавить в закладки: Семантическая разметка"
+                            >
+                                <span aria-hidden="true">☆</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="course-lessons__item">
+                        <div class="course-lesson-row">
+                            <a class="course-lesson-row__link" href="#lesson-3">3. Основы CSS</a>
+                            <button
+                                type="button"
+                                class="lesson-bookmark-btn"
+                                data-lesson-id="lesson-3"
+                                aria-pressed="false"
+                                aria-label="Добавить в закладки: Основы CSS"
+                            >
+                                <span aria-hidden="true">☆</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="course-lessons__item">
+                        <div class="course-lesson-row">
+                            <a class="course-lesson-row__link" href="#lesson-4">4. Flexbox и сетки</a>
+                            <button
+                                type="button"
+                                class="lesson-bookmark-btn"
+                                data-lesson-id="lesson-4"
+                                aria-pressed="false"
+                                aria-label="Добавить в закладки: Flexbox и сетки"
+                            >
+                                <span aria-hidden="true">☆</span>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="course-lessons__item">
+                        <div class="course-lesson-row">
+                            <a class="course-lesson-row__link" href="#lesson-5">5. Скрипты и интерактив</a>
+                            <button
+                                type="button"
+                                class="lesson-bookmark-btn"
+                                data-lesson-id="lesson-5"
+                                aria-pressed="false"
+                                aria-label="Добавить в закладки: Скрипты и интерактив"
+                            >
+                                <span aria-hidden="true">☆</span>
+                            </button>
+                        </div>
+                    </li>
+                </ol>
+            </aside>
+
+            <div class="course-content">
+                <article class="lesson-section" id="lesson-1" aria-labelledby="lesson-1-title">
+                    <header class="lesson-section__header">
+                        <h2 class="lesson-section__title" id="lesson-1-title">Урок 1. Введение в HTML</h2>
+                        <span class="lesson-section__meta">~25 мин</span>
+                    </header>
+                    <div class="lesson-section__body">
+                        <p>HTML описывает структуру страницы: заголовки, абзацы, списки, ссылки и медиа. Браузер читает теги и строит дерево документа (DOM).</p>
+                        <p>На этом курсе вы научитесь писать валидную разметку и выбирать подходящие теги под задачу.</p>
+                    </div>
+                    <label class="lesson-complete">
+                        <input type="checkbox" class="lesson-progress-check" data-lesson-id="lesson-1">
+                        <span>Отметить урок как пройденный</span>
+                    </label>
+                </article>
+
+                <article class="lesson-section" id="lesson-2" aria-labelledby="lesson-2-title">
+                    <header class="lesson-section__header">
+                        <h2 class="lesson-section__title" id="lesson-2-title">Урок 2. Семантическая разметка</h2>
+                        <span class="lesson-section__meta">~30 мин</span>
+                    </header>
+                    <div class="lesson-section__body">
+                        <p>Теги <code>header</code>, <code>main</code>, <code>nav</code>, <code>article</code>, <code>section</code> помогают и людям, и технологиям понять смысл блоков на странице.</p>
+                        <p>Семантика улучшает доступность и SEO.</p>
+                    </div>
+                    <label class="lesson-complete">
+                        <input type="checkbox" class="lesson-progress-check" data-lesson-id="lesson-2">
+                        <span>Отметить урок как пройденный</span>
+                    </label>
+                </article>
+
+                <article class="lesson-section" id="lesson-3" aria-labelledby="lesson-3-title">
+                    <header class="lesson-section__header">
+                        <h2 class="lesson-section__title" id="lesson-3-title">Урок 3. Основы CSS</h2>
+                        <span class="lesson-section__meta">~35 мин</span>
+                    </header>
+                    <div class="lesson-section__body">
+                        <p>CSS задаёт внешний вид: цвета, шрифты, отступы и позиционирование. Стили можно подключать отдельным файлом или встроенным блоком.</p>
+                        <p>Специфичность и каскад определяют, какое правило победит при конфликте.</p>
+                    </div>
+                    <label class="lesson-complete">
+                        <input type="checkbox" class="lesson-progress-check" data-lesson-id="lesson-3">
+                        <span>Отметить урок как пройденный</span>
+                    </label>
+                </article>
+
+                <article class="lesson-section" id="lesson-4" aria-labelledby="lesson-4-title">
+                    <header class="lesson-section__header">
+                        <h2 class="lesson-section__title" id="lesson-4-title">Урок 4. Flexbox и сетки</h2>
+                        <span class="lesson-section__meta">~40 мин</span>
+                    </header>
+                    <div class="lesson-section__body">
+                        <p>Flexbox удобен для выравнивания элементов в ряд или колонку; CSS Grid — для двумерных макетов страницы и крупных блоков.</p>
+                        <p>Вместе с медиазапросами это основа адаптивной вёрстки.</p>
+                    </div>
+                    <label class="lesson-complete">
+                        <input type="checkbox" class="lesson-progress-check" data-lesson-id="lesson-4">
+                        <span>Отметить урок как пройденный</span>
+                    </label>
+                </article>
+
+                <article class="lesson-section" id="lesson-5" aria-labelledby="lesson-5-title">
+                    <header class="lesson-section__header">
+                        <h2 class="lesson-section__title" id="lesson-5-title">Урок 5. Скрипты и интерактив</h2>
+                        <span class="lesson-section__meta">~35 мин</span>
+                    </header>
+                    <div class="lesson-section__body">
+                        <p>Чтобы страница реагировала на действия пользователя, в браузере выполняют сценарии: обработка кликов, проверка полей форм, изменение содержимого на лету. Подключать их удобно в конце документа или с отложенной загрузкой (<code>defer</code>).</p>
+                        <p>Дальше в программе — события, функции и практические задания.</p>
+                    </div>
+                    <label class="lesson-complete">
+                        <input type="checkbox" class="lesson-progress-check" data-lesson-id="lesson-5">
+                        <span>Отметить урок как пройденный</span>
+                    </label>
+                </article>
+            </div>
+            </div>
+
+            <section class="course-test" aria-labelledby="course-test-title">
+                <h2 class="course-test__title" id="course-test-title">Тест по основам модуля</h2>
+                <p class="course-test__lead">Выберите варианты и нажмите «Проверить ответы» — сразу увидите, сколько вопросов решено верно.</p>
+
+                <form id="web-dev-test" class="course-test__form" novalidate>
+                    <fieldset class="course-test__fieldset">
+                        <legend class="course-test__legend">1. Как расшифровывается HTML?</legend>
+                        <ul class="course-test__options">
+                            <li>
+                                <label class="course-test__option">
+                                    <input type="radio" name="test-q1" value="a">
+                                    Hyper Transfer Markup Language
+                                </label>
+                            </li>
+                            <li>
+                                <label class="course-test__option">
+                                    <input type="radio" name="test-q1" value="b">
+                                    HyperText Markup Language
+                                </label>
+                            </li>
+                            <li>
+                                <label class="course-test__option">
+                                    <input type="radio" name="test-q1" value="c">
+                                    HighText Machine Language
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset class="course-test__fieldset">
+                        <legend class="course-test__legend">2. Какое CSS-свойство задаёт цвет текста?</legend>
+                        <ul class="course-test__options">
+                            <li>
+                                <label class="course-test__option">
+                                    <input type="radio" name="test-q2" value="a">
+                                    font-color
+                                </label>
+                            </li>
+                            <li>
+                                <label class="course-test__option">
+                                    <input type="radio" name="test-q2" value="b">
+                                    color
+                                </label>
+                            </li>
+                            <li>
+                                <label class="course-test__option">
+                                    <input type="radio" name="test-q2" value="c">
+                                    text-style
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset class="course-test__fieldset">
+                        <legend class="course-test__legend">3. Какой тег используют для гиперссылки?</legend>
+                        <ul class="course-test__options">
+                            <li>
+                                <label class="course-test__option">
+                                    <input type="radio" name="test-q3" value="a">
+                                    &lt;link&gt;
+                                </label>
+                            </li>
+                            <li>
+                                <label class="course-test__option">
+                                    <input type="radio" name="test-q3" value="b">
+                                    &lt;a&gt;
+                                </label>
+                            </li>
+                            <li>
+                                <label class="course-test__option">
+                                    <input type="radio" name="test-q3" value="c">
+                                    &lt;url&gt;
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <div class="course-test__actions">
+                        <button type="button" class="button button--primary" id="test-check-btn">Проверить ответы</button>
+                        <p class="course-test__results" id="test-results" role="status" aria-live="polite"></p>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <a href="index.html" class="footer__logo" aria-label="EduPlatform — главная">
+                    <img src="images/logo.svg" alt="" width="42" height="42" aria-hidden="true">
+                    <span class="footer__brand-name">EduPlatform</span>
+                </a>
+            </div>
+            <nav class="footer__nav" aria-label="Навигация в подвале">
+                <ul class="footer__nav-list">
+                    <li><a href="index.html#about">О платформе</a></li>
+                    <li><a href="index.html#courses">Курсы</a></li>
+                    <li><a href="index.html#teachers">Преподаватели</a></li>
+                    <li><a href="index.html#reviews">Отзывы</a></li>
+                </ul>
+            </nav>
+            <section class="footer__callback" aria-labelledby="callback-title">
+                <h2 id="callback-title" class="footer__callback-title">Заявка на обратный звонок</h2>
+                <form class="footer__form" action="#" method="post" aria-labelledby="callback-title">
+                    <label for="phone-course" class="visually-hidden">Ваш телефон</label>
+                    <input type="tel" id="phone-course" name="phone" class="footer__input" placeholder="Ваш телефон" required>
+                    <button type="submit" class="button button--primary footer__submit">Заказать звонок</button>
+                </form>
+            </section>
+        </div>
+        <p class="footer__copyright">&copy; EduPlatform. Все права защищены.</p>
+    </footer>
+
+    <script src="js/course-layout.js"></script>
+</body>
+</html>

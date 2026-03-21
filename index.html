@@ -234,7 +234,7 @@
                             <span class="course-card__duration">4 месяца</span>
                             <span class="course-card__badge">С нуля</span>
                         </div>
-                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+                        <a href="course-web.html" class="course-card__cta">Перейти к курсу</a>
                     </article>
                 </li>
                 <li>
@@ -329,25 +329,8 @@
         <p class="footer__copyright">&copy; EduPlatform. Все права защищены.</p>
     </footer>
 
-    <script>
-        const burgerBtn = document.getElementById('burger-btn');
-        const mainNav = document.getElementById('main-nav');
-
-        burgerBtn.addEventListener('click', () => {
-            const isOpen = mainNav.classList.toggle('header__nav--open');
-            burgerBtn.classList.toggle('header__burger--active', isOpen);
-            burgerBtn.setAttribute('aria-expanded', isOpen);
-            burgerBtn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
-        });
-
-        mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('header__nav--open');
-                burgerBtn.classList.remove('header__burger--active');
-                burgerBtn.setAttribute('aria-expanded', 'false');
-                burgerBtn.setAttribute('aria-label', 'Открыть меню');
-            });
-        });
-    </script>
+    <script src="js/script.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>
