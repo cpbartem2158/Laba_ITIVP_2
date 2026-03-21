@@ -68,7 +68,6 @@
 
             <a href="#contact" class="header__cta button button--primary">Связаться с нами</a>
 
-            <!-- Бургер-кнопка (видна только на мобилках) -->
             <button
                 class="header__burger"
                 id="burger-btn"
@@ -123,7 +122,7 @@
             </ul>
         </section>
 
-        <section class="advantages" id="courses" aria-labelledby="advantages-title">
+        <section class="advantages" id="advantages" aria-labelledby="advantages-title">
     <h2 id="advantages-title" class="section-title section-title--light">Почему EduPlatform</h2>
     
     <div class="advantages__row">
@@ -219,6 +218,87 @@
                 </article>
             </aside>
         </section>
+
+        <section class="courses" id="courses" aria-labelledby="courses-title">
+            <header class="courses__head">
+                <h2 id="courses-title" class="section-title">Курсы</h2>
+                <p class="courses__lead">Практика, проекты и обратная связь — выбирайте направление и пишите нам о старте набора</p>
+            </header>
+            <ul class="courses__grid">
+                <li>
+                    <article class="course-card" aria-labelledby="course-title-web">
+                        <span class="course-card__category">Программирование</span>
+                        <h3 id="course-title-web" class="course-card__title">Веб-разработка</h3>
+                        <p class="course-card__desc">Вёрстка, JavaScript и основы бэкенда — от первой страницы до проекта в портфолио</p>
+                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
+                            <span class="course-card__duration">4 месяца</span>
+                            <span class="course-card__badge">С нуля</span>
+                        </div>
+                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+                    </article>
+                </li>
+                <li>
+                    <article class="course-card" aria-labelledby="course-title-python">
+                        <span class="course-card__category">Программирование</span>
+                        <h3 id="course-title-python" class="course-card__title">Python с нуля</h3>
+                        <p class="course-card__desc">Синтаксис, структуры данных и скрипты для задач из реальной жизни</p>
+                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
+                            <span class="course-card__duration">3 месяца</span>
+                            <span class="course-card__badge">С нуля</span>
+                        </div>
+                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+                    </article>
+                </li>
+                <li>
+                    <article class="course-card" aria-labelledby="course-title-ege">
+                        <span class="course-card__category">Школа и экзамены</span>
+                        <h3 id="course-title-ege" class="course-card__title">ЕГЭ по информатике</h3>
+                        <p class="course-card__desc">Типовые задания, алгоритмы и разбор по материалам ФИПИ</p>
+                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
+                            <span class="course-card__duration">9 месяцев</span>
+                            <span class="course-card__badge">10–11 класс</span>
+                        </div>
+                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+                    </article>
+                </li>
+                <li>
+                    <article class="course-card" aria-labelledby="course-title-en">
+                        <span class="course-card__category">Языки</span>
+                        <h3 id="course-title-en" class="course-card__title">Английский для IT</h3>
+                        <p class="course-card__desc">Лексика разработчика, переписка с заказчиками и формат собеседований</p>
+                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
+                            <span class="course-card__duration">2 месяца</span>
+                            <span class="course-card__badge">B1+</span>
+                        </div>
+                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+                    </article>
+                </li>
+                <li>
+                    <article class="course-card" aria-labelledby="course-title-ui">
+                        <span class="course-card__category">Дизайн</span>
+                        <h3 id="course-title-ui" class="course-card__title">UI/UX-дизайн</h3>
+                        <p class="course-card__desc">Figma, композиция и прототипы — от идеи до макета приложения</p>
+                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
+                            <span class="course-card__duration">3 месяца</span>
+                            <span class="course-card__badge">С нуля</span>
+                        </div>
+                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+                    </article>
+                </li>
+                <li>
+                    <article class="course-card" aria-labelledby="course-title-data">
+                        <span class="course-card__category">Аналитика</span>
+                        <h3 id="course-title-data" class="course-card__title">Анализ данных</h3>
+                        <p class="course-card__desc">SQL, таблицы и визуализация — от сырых данных до понятных выводов</p>
+                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
+                            <span class="course-card__duration">4 месяца</span>
+                            <span class="course-card__badge">Базовый Excel</span>
+                        </div>
+                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+                    </article>
+                </li>
+            </ul>
+        </section>
     </main>
 
     <footer class="footer" id="contact">
@@ -249,7 +329,6 @@
         <p class="footer__copyright">&copy; EduPlatform. Все права защищены.</p>
     </footer>
 
-    <!-- Скрипт бургер-меню -->
     <script>
         const burgerBtn = document.getElementById('burger-btn');
         const mainNav = document.getElementById('main-nav');
@@ -261,7 +340,6 @@
             burgerBtn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
         });
 
-        // Закрываем меню при клике на ссылку
         mainNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mainNav.classList.remove('header__nav--open');

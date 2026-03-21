@@ -169,7 +169,158 @@
     height: 200px;
 }
 
+.courses {
+    padding: 40px var(--container-padding);
+    background: var(--color-bg);
+}
 
+.courses__head {
+    max-width: 640px;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+.courses .section-title {
+    margin-bottom: 14px;
+}
+
+.courses__lead {
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+.courses__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.courses__grid > li {
+    min-width: 0;
+}
+
+.course-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 22px 20px;
+    background: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(21, 83, 172, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 31, 72, 0.05);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.course-card:hover {
+    border-color: rgba(21, 83, 172, 0.22);
+    box-shadow: 0 14px 36px rgba(0, 31, 72, 0.09);
+    transform: translateY(-4px);
+}
+
+.course-card:focus-within {
+    border-color: var(--color-primary);
+    box-shadow:
+        0 0 0 3px rgba(21, 83, 172, 0.22),
+        0 14px 36px rgba(0, 31, 72, 0.07);
+}
+
+.course-card__category {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 0 0 10px;
+}
+
+.course-card__title {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.28;
+    color: #002D6D;
+    margin: 0 0 12px;
+}
+
+.course-card__desc {
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--color-text-light);
+    margin: 0 0 18px;
+}
+
+.course-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 14px;
+    margin-top: auto;
+    margin-bottom: 16px;
+    border-top: 1px solid rgba(0, 31, 72, 0.08);
+}
+
+.course-card__duration {
+    font-family: var(--font-secondary);
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+.course-card__badge {
+    font-family: var(--font-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+    background: rgba(0, 106, 255, 0.12);
+    color: var(--color-primary-dark);
+}
+
+.course-card__cta {
+    align-self: flex-start;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.2;
+    color: var(--color-accent);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s ease;
+}
+
+.course-card__cta:hover {
+    color: var(--color-primary-dark);
+}
+
+.course-card__cta:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .course-card {
+        transition: none;
+    }
+
+    .course-card:hover,
+    .course-card:focus-within {
+        transform: none;
+    }
+}
 
 .process {
     padding: 40px var(--container-padding);
@@ -296,6 +447,15 @@
     .process__steps li {
         font-size: 18px;
     }
+
+    .courses__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .courses__head {
+        margin-bottom: 32px;
+    }
 }
 
 @media (min-width: 769px) {
@@ -333,6 +493,22 @@
 
     .advantages {
         padding: 60px var(--container-padding);
+    }
+
+    .courses {
+        padding: 60px var(--container-padding);
+    }
+
+    .courses__lead {
+        font-size: 17px;
+    }
+
+    .course-card {
+        padding: 24px 24px 22px;
+    }
+
+    .course-card__title {
+        font-size: 20px;
     }
 
     .advantages__image-placeholder,
@@ -441,6 +617,35 @@
 
     .advantages {
         padding: 80px var(--container-padding);
+    }
+
+    .courses {
+        padding: 80px var(--container-padding);
+    }
+
+    .courses__head {
+        max-width: 720px;
+        margin-bottom: 48px;
+    }
+
+    .courses__lead {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .courses__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .course-card__title {
+        font-size: 22px;
+        line-height: 1.27;
+    }
+
+    .course-card__desc {
+        font-size: 16px;
+        line-height: 1.4;
     }
 
     .advantages__row {
