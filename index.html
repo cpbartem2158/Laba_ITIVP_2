@@ -319,9 +319,10 @@
             </nav>
             <section class="footer__callback" aria-labelledby="callback-title">
                 <h2 id="callback-title" class="footer__callback-title">Заявка на обратный звонок</h2>
-                <form class="footer__form" action="#" method="post" aria-labelledby="callback-title">
+                <form class="footer__form" action="#" method="post" aria-labelledby="callback-title" novalidate>
                     <label for="phone" class="visually-hidden">Ваш телефон</label>
-                    <input type="tel" id="phone" name="phone" class="footer__input" placeholder="Ваш телефон" required>
+                    <input type="tel" id="phone" name="phone" class="footer__input" placeholder="Ваш телефон" autocomplete="tel" aria-describedby="phone-error" aria-invalid="false" required>
+                    <div id="phone-error" class="footer__error" role="alert" aria-live="polite" hidden></div>
                     <button type="submit" class="button button--primary footer__submit">Заказать звонок</button>
                 </form>
             </section>
@@ -329,8 +330,8 @@
         <p class="footer__copyright">&copy; EduPlatform. Все права защищены.</p>
     </footer>
 
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/components/modal.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/helpers.js"></script>
-    <script src="js/modal.js"></script>
 </body>
 </html>
