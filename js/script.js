@@ -153,51 +153,63 @@ function initHomePageExtras() {
 }
 
 /**
- * Демо на главной: innerHTML/textContent, createElement + несколько style-полей,
- * делегирование click на контейнере — обработчик срабатывает и для позже добавленных узлов.
+ * Демо на главной: innerHTML / textContent, createElement + классы,
+ * делегирование click — новые «темы» ловятся тем же обработчиком.
  */
 function initHtmlContentExample() {
     var heroContent = document.querySelector('.hero .hero__content');
     if (!heroContent || document.getElementById('js-html-demo')) return;
 
+    var moduleThemes = ['Вёрстка', 'Стили', 'JavaScript', 'Доступность'];
+
     var aside = document.createElement('aside');
     aside.id = 'js-html-demo';
-    aside.setAttribute('aria-label', 'Демо: DOM и делегирование событий');
-    aside.style.marginTop = '1.25rem';
+    aside.className = 'js-dom-demo';
+    aside.setAttribute('aria-label', 'Демо: как JavaScript меняет страницу');
+
+    var caption = document.createElement('p');
+    caption.className = 'course-card__category';
+    caption.textContent = 'Интерактив';
 
     var target = document.createElement('p');
-    target.className = 'hero__description';
+    target.className = 'js-dom-demo__target';
     target.id = 'js-html-demo-target';
     target.textContent =
-        'Кнопка ниже переключает innerHTML / textContent. «Добавить элемент» создаёт новый span со стилями; клики по таким меткам обрабатываются через делегирование на этом блоке.';
+        'Текст карточки курса как обычная строка: теги <strong>не оформляются</strong>, ссылка не кликабельна.';
+
+    var row = document.createElement('div');
+    row.className = 'js-dom-demo__row';
 
     var toggleBtn = document.createElement('button');
     toggleBtn.type = 'button';
-    toggleBtn.className = 'button button--secondary';
-    toggleBtn.id = 'js-html-demo-btn';
+    toggleBtn.className = 'js-dom-demo__btn';
     toggleBtn.setAttribute('data-demo-action', 'toggle-html');
-    toggleBtn.textContent = 'Подставить HTML (innerHTML)';
-
-    var chipHost = document.createElement('div');
-    chipHost.id = 'js-html-demo-chip-host';
-    chipHost.setAttribute('role', 'group');
-    chipHost.setAttribute('aria-label', 'Динамически добавленные элементы');
-    chipHost.style.marginTop = '0.75rem';
-    chipHost.style.display = 'flex';
-    chipHost.style.flexWrap = 'wrap';
-    chipHost.style.gap = '0.35rem';
-    chipHost.style.alignItems = 'center';
+    toggleBtn.textContent = 'С разметкой';
 
     var addChipBtn = document.createElement('button');
     addChipBtn.type = 'button';
-    addChipBtn.className = 'button button--secondary';
+    addChipBtn.className = 'js-dom-demo__btn';
     addChipBtn.setAttribute('data-demo-action', 'add-chip');
-    addChipBtn.textContent = 'Добавить элемент';
+    addChipBtn.textContent = '+ тема';
 
+    row.appendChild(toggleBtn);
+    row.appendChild(addChipBtn);
+
+    var chipHost = document.createElement('div');
+    chipHost.id = 'js-html-demo-chip-host';
+    chipHost.className = 'js-dom-demo__tags';
+    chipHost.setAttribute('role', 'group');
+    chipHost.setAttribute('aria-label', 'Темы модуля (пример динамического списка)');
+
+    var hint = document.createElement('p');
+    hint.className = 'js-dom-demo__hint';
+    hint.textContent = 'Нажмите тему, чтобы отметить как пройденную — один обработчик на весь блок.';
+
+    aside.appendChild(caption);
     aside.appendChild(target);
-    aside.appendChild(toggleBtn);
+    aside.appendChild(row);
     aside.appendChild(chipHost);
-    aside.appendChild(addChipBtn);
+    aside.appendChild(hint);
 
     var actions = heroContent.querySelector('.hero__actions');
     if (actions) {
@@ -214,13 +226,13 @@ function initHtmlContentExample() {
             e.preventDefault();
             if (!showingMarkup) {
                 target.innerHTML =
-                    'Строка задана через <strong>innerHTML</strong> — браузер создаёт узлы из тегов. ' +
-                    '<a href="#courses">Ссылка на курсы</a>.';
-                toggleBtn.textContent = 'Показать только текст (textContent)';
+                    'Описание модуля с <strong>выделением</strong> и рабочей ' +
+                    '<a href="#courses">ссылкой на каталог</a> — через innerHTML.';
+                toggleBtn.textContent = 'Как текст';
             } else {
                 target.textContent =
-                    'Строка задана через textContent: теги в ней не работают, виден сырой текст <strong>…</strong> если он есть в строке.';
-                toggleBtn.textContent = 'Подставить HTML (innerHTML)';
+                    'Текст карточки курса как обычная строка: теги <strong>не оформляются</strong>, ссылка не кликабельна.';
+                toggleBtn.textContent = 'С разметкой';
             }
             showingMarkup = !showingMarkup;
             return;
@@ -228,30 +240,21 @@ function initHtmlContentExample() {
 
         if (t.closest('[data-demo-action="add-chip"]')) {
             e.preventDefault();
-            var n = chipHost.children.length + 1;
-            var chip = document.createElement('span');
-            chip.className = 'js-html-demo-chip';
-            chip.textContent = 'Метка ' + n;
-            chip.style.display = 'inline-block';
-            chip.style.padding = '0.35rem 0.65rem';
-            chip.style.borderRadius = '8px';
-            chip.style.background = '#3498db';
-            chip.style.color = '#fff';
-            chip.style.cursor = 'pointer';
-            chip.style.fontSize = '0.875rem';
-            chip.style.transition = 'background 0.2s ease, outline 0.15s ease';
+            var idx = chipHost.children.length;
+            var chip = document.createElement('button');
+            chip.type = 'button';
+            chip.className = 'js-dom-demo__tag';
+            chip.setAttribute('aria-pressed', 'false');
+            chip.textContent = idx < moduleThemes.length ? moduleThemes[idx] : 'Тема ' + (idx + 1);
             chipHost.appendChild(chip);
             return;
         }
 
-        var chipEl = t.closest('.js-html-demo-chip');
+        var chipEl = t.closest('.js-dom-demo__tag');
         if (chipEl && chipHost.contains(chipEl)) {
             e.preventDefault();
-            var active = chipEl.getAttribute('data-demo-active') === '1';
-            chipEl.setAttribute('data-demo-active', active ? '0' : '1');
-            chipEl.style.background = active ? '#3498db' : '#27ae60';
-            chipEl.style.outline = active ? 'none' : '2px solid #2c3e50';
-            chipEl.style.outlineOffset = active ? '0' : '2px';
+            var done = chipEl.classList.toggle('js-dom-demo__tag--done');
+            chipEl.setAttribute('aria-pressed', done ? 'true' : 'false');
         }
     });
 }
