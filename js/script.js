@@ -123,7 +123,7 @@ function initTest() {
         'test-q3': 'b'
     };
     var names = Object.keys(correctAnswers);
-    ////+++++
+    
     btn.addEventListener('click', function () {
         var ok = 0;
         names.forEach(function (name) {
