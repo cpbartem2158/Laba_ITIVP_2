@@ -152,6 +152,110 @@ function initHomePageExtras() {
     });
 }
 
+/**
+ * Демо на главной: innerHTML/textContent, createElement + несколько style-полей,
+ * делегирование click на контейнере — обработчик срабатывает и для позже добавленных узлов.
+ */
+function initHtmlContentExample() {
+    var heroContent = document.querySelector('.hero .hero__content');
+    if (!heroContent || document.getElementById('js-html-demo')) return;
+
+    var aside = document.createElement('aside');
+    aside.id = 'js-html-demo';
+    aside.setAttribute('aria-label', 'Демо: DOM и делегирование событий');
+    aside.style.marginTop = '1.25rem';
+
+    var target = document.createElement('p');
+    target.className = 'hero__description';
+    target.id = 'js-html-demo-target';
+    target.textContent =
+        'Кнопка ниже переключает innerHTML / textContent. «Добавить элемент» создаёт новый span со стилями; клики по таким меткам обрабатываются через делегирование на этом блоке.';
+
+    var toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
+    toggleBtn.className = 'button button--secondary';
+    toggleBtn.id = 'js-html-demo-btn';
+    toggleBtn.setAttribute('data-demo-action', 'toggle-html');
+    toggleBtn.textContent = 'Подставить HTML (innerHTML)';
+
+    var chipHost = document.createElement('div');
+    chipHost.id = 'js-html-demo-chip-host';
+    chipHost.setAttribute('role', 'group');
+    chipHost.setAttribute('aria-label', 'Динамически добавленные элементы');
+    chipHost.style.marginTop = '0.75rem';
+    chipHost.style.display = 'flex';
+    chipHost.style.flexWrap = 'wrap';
+    chipHost.style.gap = '0.35rem';
+    chipHost.style.alignItems = 'center';
+
+    var addChipBtn = document.createElement('button');
+    addChipBtn.type = 'button';
+    addChipBtn.className = 'button button--secondary';
+    addChipBtn.setAttribute('data-demo-action', 'add-chip');
+    addChipBtn.textContent = 'Добавить элемент';
+
+    aside.appendChild(target);
+    aside.appendChild(toggleBtn);
+    aside.appendChild(chipHost);
+    aside.appendChild(addChipBtn);
+
+    var actions = heroContent.querySelector('.hero__actions');
+    if (actions) {
+        actions.insertAdjacentElement('afterend', aside);
+    } else {
+        heroContent.appendChild(aside);
+    }
+
+    var showingMarkup = false;
+
+    aside.addEventListener('click', function (e) {
+        var t = e.target;
+        if (t.closest('[data-demo-action="toggle-html"]')) {
+            e.preventDefault();
+            if (!showingMarkup) {
+                target.innerHTML =
+                    'Строка задана через <strong>innerHTML</strong> — браузер создаёт узлы из тегов. ' +
+                    '<a href="#courses">Ссылка на курсы</a>.';
+                toggleBtn.textContent = 'Показать только текст (textContent)';
+            } else {
+                target.textContent =
+                    'Строка задана через textContent: теги в ней не работают, виден сырой текст <strong>…</strong> если он есть в строке.';
+                toggleBtn.textContent = 'Подставить HTML (innerHTML)';
+            }
+            showingMarkup = !showingMarkup;
+            return;
+        }
+
+        if (t.closest('[data-demo-action="add-chip"]')) {
+            e.preventDefault();
+            var n = chipHost.children.length + 1;
+            var chip = document.createElement('span');
+            chip.className = 'js-html-demo-chip';
+            chip.textContent = 'Метка ' + n;
+            chip.style.display = 'inline-block';
+            chip.style.padding = '0.35rem 0.65rem';
+            chip.style.borderRadius = '8px';
+            chip.style.background = '#3498db';
+            chip.style.color = '#fff';
+            chip.style.cursor = 'pointer';
+            chip.style.fontSize = '0.875rem';
+            chip.style.transition = 'background 0.2s ease, outline 0.15s ease';
+            chipHost.appendChild(chip);
+            return;
+        }
+
+        var chipEl = t.closest('.js-html-demo-chip');
+        if (chipEl && chipHost.contains(chipEl)) {
+            e.preventDefault();
+            var active = chipEl.getAttribute('data-demo-active') === '1';
+            chipEl.setAttribute('data-demo-active', active ? '0' : '1');
+            chipEl.style.background = active ? '#3498db' : '#27ae60';
+            chipEl.style.outline = active ? 'none' : '2px solid #2c3e50';
+            chipEl.style.outlineOffset = active ? '0' : '2px';
+        }
+    });
+}
+
 function setFooterPhoneError(input, errorEl, message) {
     if (message) {
         input.classList.add('footer__input--error');
@@ -199,6 +303,7 @@ function initFooterCallbackForm() {
 document.addEventListener('DOMContentLoaded', function () {
     if (Edu.initMobileNav) Edu.initMobileNav();
     initHomePageExtras();
+    initHtmlContentExample();
     initProgressBar();
     initBookmarks();
     initTest();
