@@ -156,113 +156,6 @@ function initHomePageExtras() {
     });
 }
 
-/**
- * Демо на главной: innerHTML / textContent, createElement + классы,
- * делегирование click — новые «темы» ловятся тем же обработчиком.
- */
-function initHtmlContentExample() {
-    var heroContent = document.querySelector('.hero .hero__content');
-    if (!heroContent || document.getElementById('js-html-demo')) return;
-
-    var moduleThemes = ['Вёрстка', 'Стили', 'JavaScript', 'Доступность'];
-
-    var aside = document.createElement('aside');
-    aside.id = 'js-html-demo';
-    aside.className = 'js-dom-demo';
-    aside.setAttribute('aria-label', 'Демо: как JavaScript меняет страницу');
-
-    var caption = document.createElement('p');
-    caption.className = 'course-card__category';
-    caption.textContent = 'Интерактив';
-
-    var target = document.createElement('p');
-    target.className = 'js-dom-demo__target';
-    target.id = 'js-html-demo-target';
-    target.textContent =
-        'Текст карточки курса как обычная строка: теги <strong>не оформляются</strong>, ссылка не кликабельна.';
-
-    var row = document.createElement('div');
-    row.className = 'js-dom-demo__row';
-
-    var toggleBtn = document.createElement('button');
-    toggleBtn.type = 'button';
-    toggleBtn.className = 'js-dom-demo__btn';
-    toggleBtn.setAttribute('data-demo-action', 'toggle-html');
-    toggleBtn.textContent = 'С разметкой';
-
-    var addChipBtn = document.createElement('button');
-    addChipBtn.type = 'button';
-    addChipBtn.className = 'js-dom-demo__btn';
-    addChipBtn.setAttribute('data-demo-action', 'add-chip');
-    addChipBtn.textContent = '+ тема';
-
-    row.appendChild(toggleBtn);
-    row.appendChild(addChipBtn);
-
-    var chipHost = document.createElement('div');
-    chipHost.id = 'js-html-demo-chip-host';
-    chipHost.className = 'js-dom-demo__tags';
-    chipHost.setAttribute('role', 'group');
-    chipHost.setAttribute('aria-label', 'Темы модуля (пример динамического списка)');
-
-    var hint = document.createElement('p');
-    hint.className = 'js-dom-demo__hint';
-    hint.textContent = 'Нажмите тему, чтобы отметить как пройденную — один обработчик на весь блок.';
-
-    aside.appendChild(caption);
-    aside.appendChild(target);
-    aside.appendChild(row);
-    aside.appendChild(chipHost);
-    aside.appendChild(hint);
-
-    var actions = heroContent.querySelector('.hero__actions');
-    if (actions) {
-        actions.insertAdjacentElement('afterend', aside);
-    } else {
-        heroContent.appendChild(aside);
-    }
-
-    var showingMarkup = false;
-
-    aside.addEventListener('click', function (e) {
-        var t = e.target;
-        if (t.closest('[data-demo-action="toggle-html"]')) {
-            e.preventDefault();
-            if (!showingMarkup) {
-                target.innerHTML =
-                    'Описание модуля с <strong>выделением</strong> и рабочей ' +
-                    '<a href="#courses">ссылкой на каталог</a> — через innerHTML.';
-                toggleBtn.textContent = 'Как текст';
-            } else {
-                target.textContent =
-                    'Текст карточки курса как обычная строка: теги <strong>не оформляются</strong>, ссылка не кликабельна.';
-                toggleBtn.textContent = 'С разметкой';
-            }
-            showingMarkup = !showingMarkup;
-            return;
-        }
-
-        if (t.closest('[data-demo-action="add-chip"]')) {
-            e.preventDefault();
-            var idx = chipHost.children.length;
-            var chip = document.createElement('button');
-            chip.type = 'button';
-            chip.className = 'js-dom-demo__tag';
-            chip.setAttribute('aria-pressed', 'false');
-            chip.textContent = idx < moduleThemes.length ? moduleThemes[idx] : 'Тема ' + (idx + 1);
-            chipHost.appendChild(chip);
-            return;
-        }
-
-        var chipEl = t.closest('.js-dom-demo__tag');
-        if (chipEl && chipHost.contains(chipEl)) {
-            e.preventDefault();
-            var done = chipEl.classList.toggle('js-dom-demo__tag--done');
-            chipEl.setAttribute('aria-pressed', done ? 'true' : 'false');
-        }
-    });
-}
-
 function setFooterPhoneError(input, errorEl, message) {
     if (message) {
         input.classList.add('footer__input--error');
@@ -310,7 +203,6 @@ function initFooterCallbackForm() {
 document.addEventListener('DOMContentLoaded', function () {
     if (Edu.initMobileNav) Edu.initMobileNav();
     initHomePageExtras();
-    initHtmlContentExample();
     initProgressBar();
     initBookmarks();
     initTest();
