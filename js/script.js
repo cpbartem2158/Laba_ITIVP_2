@@ -88,22 +88,26 @@ function initBookmarks() {
     buttons.forEach(function (btn) {
         var id = btn.getAttribute('data-lesson-id');
         if (id && set[id]) applyBookmarkState(btn, true);
+    });
 
-        btn.addEventListener('click', function () {
-            var lessonId = btn.getAttribute('data-lesson-id');
-            if (!lessonId) return;
+    // Делегирование событий: один обработчик на document
+    document.addEventListener('click', function (e) {
+        var btn = e.target && e.target.closest ? e.target.closest('.lesson-bookmark-btn') : null;
+        if (!btn) return;
 
-            var isActive = btn.classList.contains('lesson-bookmark-btn--active');
-            if (isActive) {
-                delete set[lessonId];
-                applyBookmarkState(btn, false);
-            } else {
-                set[lessonId] = true;
-                applyBookmarkState(btn, true);
-            }
+        var lessonId = btn.getAttribute('data-lesson-id');
+        if (!lessonId) return;
 
-            writeJson(key, Object.keys(set));
-        });
+        var isActive = btn.classList.contains('lesson-bookmark-btn--active');
+        if (isActive) {
+            delete set[lessonId];
+            applyBookmarkState(btn, false);
+        } else {
+            set[lessonId] = true;
+            applyBookmarkState(btn, true);
+        }
+
+        writeJson(key, Object.keys(set));
     });
 }
 
@@ -119,7 +123,7 @@ function initTest() {
         'test-q3': 'b'
     };
     var names = Object.keys(correctAnswers);
-
+    ////+++++
     btn.addEventListener('click', function () {
         var ok = 0;
         names.forEach(function (name) {
