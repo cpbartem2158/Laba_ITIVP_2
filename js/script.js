@@ -1,17 +1,17 @@
 var Edu = window.EduPlatform || {};
 
 function updateCourseProgress() {
-    var track = document.getElementById('course-progress-track');
-    var fill = document.getElementById('course-progress-fill');
-    var percentEl = document.getElementById('course-progress-percent');
-    var checks = document.querySelectorAll('.lesson-progress-check');
+    let track = document.getElementById('course-progress-track');
+    let fill = document.getElementById('course-progress-fill');
+    let percentEl = document.getElementById('course-progress-percent');
+    let checks = document.querySelectorAll('.lesson-progress-check');
     if (!track || !fill || !percentEl || !checks.length) return;
 
-    var done = 0;
+    let done = 0;
     checks.forEach(function (cb) {
         if (cb.checked) done += 1;
     });
-    var pct = Math.round((done / checks.length) * 100);
+    let pct = Math.round((done / checks.length) * 100);
 
     fill.style.width = pct + '%';
     track.setAttribute('aria-valuenow', String(pct));
@@ -20,16 +20,16 @@ function updateCourseProgress() {
 }
 
 function initProgressBar() {
-    var readJson = Edu.readJson;
-    var writeJson = Edu.writeJson;
+    let readJson = Edu.readJson;
+    let writeJson = Edu.writeJson;
     if (!readJson || !writeJson) return;
 
-    var key = Edu.STORAGE_COURSE_PROGRESS;
-    var checks = document.querySelectorAll('.lesson-progress-check');
+    let key = Edu.STORAGE_COURSE_PROGRESS;
+    let checks = document.querySelectorAll('.lesson-progress-check');
     if (!checks.length) return;
 
-    var saved = readJson(key, []);
-    var doneSet = {};
+    let saved = readJson(key, []);
+    let doneSet = {};
     if (Array.isArray(saved)) {
         saved.forEach(function (id) {
             doneSet[id] = true;
@@ -37,13 +37,13 @@ function initProgressBar() {
     }
 
     checks.forEach(function (cb) {
-        var id = cb.getAttribute('data-lesson-id');
+        let id = cb.getAttribute('data-lesson-id');
         if (id && doneSet[id]) cb.checked = true;
 
         cb.addEventListener('change', function () {
-            var ids = [];
+            let ids = [];
             checks.forEach(function (c) {
-                var lid = c.getAttribute('data-lesson-id');
+                let lid = c.getAttribute('data-lesson-id');
                 if (lid && c.checked) ids.push(lid);
             });
             writeJson(key, ids);
@@ -57,9 +57,9 @@ function initProgressBar() {
 function applyBookmarkState(btn, active) {
     btn.classList.toggle('lesson-bookmark-btn--active', active);
     btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-    var star = btn.querySelector('span[aria-hidden="true"]');
+    let star = btn.querySelector('span[aria-hidden="true"]');
     if (star) star.textContent = active ? '★' : '☆';
-    var label = btn.getAttribute('aria-label') || '';
+    let label = btn.getAttribute('aria-label') || '';
     if (active) {
         label = label.replace('Добавить в закладки', 'Удалить из закладок');
     } else {
@@ -69,16 +69,16 @@ function applyBookmarkState(btn, active) {
 }
 
 function initBookmarks() {
-    var readJson = Edu.readJson;
-    var writeJson = Edu.writeJson;
+    let readJson = Edu.readJson;
+    let writeJson = Edu.writeJson;
     if (!readJson || !writeJson) return;
 
-    var key = Edu.STORAGE_COURSE_BOOKMARKS;
-    var buttons = document.querySelectorAll('.lesson-bookmark-btn');
+    let key = Edu.STORAGE_COURSE_BOOKMARKS;
+    let buttons = document.querySelectorAll('.lesson-bookmark-btn');
     if (!buttons.length) return;
 
-    var bookmarkIds = readJson(key, []);
-    var set = {};
+    let bookmarkIds = readJson(key, []);
+    let set = {};
     if (Array.isArray(bookmarkIds)) {
         bookmarkIds.forEach(function (id) {
             set[id] = true;
@@ -86,19 +86,18 @@ function initBookmarks() {
     }
 
     buttons.forEach(function (btn) {
-        var id = btn.getAttribute('data-lesson-id');
+        let id = btn.getAttribute('data-lesson-id');
         if (id && set[id]) applyBookmarkState(btn, true);
     });
 
-    // Делегирование событий: один обработчик на document
     document.addEventListener('click', function (e) {
-        var btn = e.target && e.target.closest ? e.target.closest('.lesson-bookmark-btn') : null;
+        let btn = e.target && e.target.closest ? e.target.closest('.lesson-bookmark-btn') : null;
         if (!btn) return;
 
-        var lessonId = btn.getAttribute('data-lesson-id');
+        let lessonId = btn.getAttribute('data-lesson-id');
         if (!lessonId) return;
 
-        var isActive = btn.classList.contains('lesson-bookmark-btn--active');
+        let isActive = btn.classList.contains('lesson-bookmark-btn--active');
         if (isActive) {
             delete set[lessonId];
             applyBookmarkState(btn, false);
@@ -112,22 +111,22 @@ function initBookmarks() {
 }
 
 function initTest() {
-    var form = document.getElementById('web-dev-test');
-    var btn = document.getElementById('test-check-btn');
-    var out = document.getElementById('test-results');
+    let form = document.getElementById('web-dev-test');
+    let btn = document.getElementById('test-check-btn');
+    let out = document.getElementById('test-results');
     if (!form || !btn || !out) return;
 
-    var correctAnswers = {
+    let correctAnswers = {
         'test-q1': 'b',
         'test-q2': 'b',
         'test-q3': 'b'
     };
-    var names = Object.keys(correctAnswers);
+    let names = Object.keys(correctAnswers);
     
     btn.addEventListener('click', function () {
-        var ok = 0;
+        let ok = 0;
         names.forEach(function (name) {
-            var picked = form.querySelector('input[name="' + name + '"]:checked');
+            let picked = form.querySelector('input[name="' + name + '"]:checked');
             if (picked && picked.value === correctAnswers[name]) ok += 1;
         });
 
@@ -145,7 +144,7 @@ function initTest() {
 }
 
 function initHomePageExtras() {
-    var heading = document.querySelector('h1');
+    let heading = document.querySelector('h1');
     if (!heading) return;
     heading.style.transition = 'color 0.3s ease';
     heading.addEventListener('mouseenter', function () {
@@ -171,18 +170,18 @@ function setFooterPhoneError(input, errorEl, message) {
 }
 
 function initFooterCallbackForm() {
-    var getErr = Edu.getPhoneValidationError;
+    let getErr = Edu.getPhoneValidationError;
     if (!getErr) return;
 
-    var forms = document.querySelectorAll('.footer__form');
+    let forms = document.querySelectorAll('.footer__form');
     forms.forEach(function (form) {
-        var input = form.querySelector('.footer__input');
-        var errorEl = form.querySelector('.footer__error');
+        let input = form.querySelector('.footer__input');
+        let errorEl = form.querySelector('.footer__error');
         if (!input || !errorEl) return;
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            var msg = getErr(input.value);
+            let msg = getErr(input.value);
             if (msg) {
                 setFooterPhoneError(input, errorEl, msg);
                 input.focus();
