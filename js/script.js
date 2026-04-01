@@ -1,4 +1,40 @@
-var Edu = window.EduPlatform || {};
+window.EduPlatform = window.EduPlatform || {};
+var Edu = window.EduPlatform;
+
+Edu.getPhoneValidationError = function (value) {
+    var trimmed = (value || '').trim();
+    if (!trimmed) return 'Введите номер телефона';
+
+    if (trimmed.length === 12 && trimmed.indexOf('375') === 0) return '';
+
+    var byMobilePrefixes = ['15', '25', '29', '33', '44'];
+    var prefix2 = trimmed.substring(3, 5);
+    if (trimmed.length === 9 && byMobilePrefixes.indexOf(prefix2) !== -1) return '';
+
+    return 'Укажите корректный номер (например, 375 29 XXX-XX-XX)';
+};
+
+Edu.initMobileNav = function () {
+    var burgerBtn = document.getElementById('burger-btn');
+    var mainNav = document.getElementById('main-nav');
+    if (!burgerBtn || !mainNav) return;
+
+    burgerBtn.addEventListener('click', function () {
+        var isOpen = mainNav.classList.toggle('header__nav--open');
+        burgerBtn.classList.toggle('header__burger--active', isOpen);
+        burgerBtn.setAttribute('aria-expanded', isOpen);
+        burgerBtn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    });
+
+    mainNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            mainNav.classList.remove('header__nav--open');
+            burgerBtn.classList.remove('header__burger--active');
+            burgerBtn.setAttribute('aria-expanded', 'false');
+            burgerBtn.setAttribute('aria-label', 'Открыть меню');
+        });
+    });
+};
 
 function updateCourseProgress() {
     let track = document.getElementById('course-progress-track');
