@@ -1,5 +1,4 @@
-window.EduPlatform = window.EduPlatform || {};
-var Edu = window.EduPlatform;
+import { Edu } from '../eduPlatform.js';
 
 Edu.parseJson = function (raw, fallback) {
     try {

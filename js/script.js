@@ -1,26 +1,28 @@
-window.EduPlatform = window.EduPlatform || {};
-var Edu = window.EduPlatform;
+import { Edu } from './eduPlatform.js';
+import { API_CONFIG } from './api/config.js';
+import { ApiService } from './api/apiService.js';
+import { LocalStorageService } from './storage/localStorage.js';
 
 Edu.getPhoneValidationError = function (value) {
-    var trimmed = (value || '').trim();
+    let trimmed = (value || '').trim();
     if (!trimmed) return 'Введите номер телефона';
 
     if (trimmed.length === 12 && trimmed.indexOf('375') === 0) return '';
 
-    var byMobilePrefixes = ['15', '25', '29', '33', '44'];
-    var prefix2 = trimmed.substring(3, 5);
+    let byMobilePrefixes = ['15', '25', '29', '33', '44'];
+    let prefix2 = trimmed.substring(3, 5);
     if (trimmed.length === 9 && byMobilePrefixes.indexOf(prefix2) !== -1) return '';
 
     return 'Укажите корректный номер (например, 375 29 XXX-XX-XX)';
 };
 
 Edu.initMobileNav = function () {
-    var burgerBtn = document.getElementById('burger-btn');
-    var mainNav = document.getElementById('main-nav');
+    let burgerBtn = document.getElementById('burger-btn');
+    let mainNav = document.getElementById('main-nav');
     if (!burgerBtn || !mainNav) return;
 
     burgerBtn.addEventListener('click', function () {
-        var isOpen = mainNav.classList.toggle('header__nav--open');
+        let isOpen = mainNav.classList.toggle('header__nav--open');
         burgerBtn.classList.toggle('header__burger--active', isOpen);
         burgerBtn.setAttribute('aria-expanded', isOpen);
         burgerBtn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
@@ -472,9 +474,6 @@ class APIIntegrationManager {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (typeof LocalStorageService === 'undefined' || typeof ApiService === 'undefined' || typeof API_CONFIG === 'undefined') {
-        return;
-    }
     try {
         new APIIntegrationManager();
     } catch (e) {

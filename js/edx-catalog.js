@@ -1,17 +1,16 @@
-window.EduPlatform = window.EduPlatform || {};
-var Edu = window.EduPlatform;
+import { Edu } from './eduPlatform.js';
 
 (function () {
-    var PAGE_SIZE = 12;
-    var EDX_ORIGIN = 'https://courses.edx.org';
-    var CACHE_KEY = 'edu-edx-catalog-pages';
-    var CACHE_TTL_MS = 30 * 60 * 1000;
+    let PAGE_SIZE = 12;
+    let EDX_ORIGIN = 'https://courses.edx.org';
+    let CACHE_KEY = 'edu-edx-catalog-pages';
+    let CACHE_TTL_MS = 30 * 60 * 1000;
 
     function ensureApiConfig() {
         Edu.apiConfig = Edu.apiConfig || {};
-        var proxy = Edu.API_CONFIG && Edu.API_CONFIG.edxProxy;
-        var base = Edu.EDX_API_BASE;
-        var key = Edu.EDX_PROXY_API_KEY || '';
+        let proxy = Edu.API_CONFIG && Edu.API_CONFIG.edxProxy;
+        let base = Edu.EDX_API_BASE;
+        let key = Edu.EDX_PROXY_API_KEY || '';
         if (!base && proxy && proxy.baseUrl) {
             base = proxy.baseUrl;
             if (!key && proxy.apiKey) key = proxy.apiKey;
@@ -22,7 +21,7 @@ var Edu = window.EduPlatform;
     }
 
     function readCacheStore() {
-        var read = Edu.readJson;
+        let read = Edu.readJson;
         if (!read) return { pages: {}, meta: {} };
         return read(CACHE_KEY, { pages: {}, meta: {} });
     }
@@ -32,15 +31,15 @@ var Edu = window.EduPlatform;
     }
 
     function getPageFromCache(pageNum) {
-        var store = readCacheStore();
-        var entry = store.pages[String(pageNum)];
+        let store = readCacheStore();
+        let entry = store.pages[String(pageNum)];
         if (!entry || !entry.data) return null;
         if (Date.now() - entry.savedAt > CACHE_TTL_MS) return null;
         return entry.data;
     }
 
     function savePageToCache(pageNum, data) {
-        var store = readCacheStore();
+        let store = readCacheStore();
         store.pages[String(pageNum)] = { savedAt: Date.now(), data: data };
         if (data && data.pagination) {
             store.meta.count = data.pagination.count;
@@ -56,7 +55,7 @@ var Edu = window.EduPlatform;
     function pathFromPaginationNext(fullUrl) {
         if (!fullUrl) return null;
         try {
-            var u = new URL(fullUrl);
+            let u = new URL(fullUrl);
             if (u.origin === EDX_ORIGIN) {
                 return u.pathname + u.search;
             }
@@ -67,7 +66,7 @@ var Edu = window.EduPlatform;
     }
 
     function pathForPage(pageNum) {
-        var qs = Edu.buildQueryString({
+        let qs = Edu.buildQueryString({
             page_size: PAGE_SIZE,
             page: pageNum,
         });
@@ -83,7 +82,7 @@ var Edu = window.EduPlatform;
                 return res.text();
             })
             .then(function (text) {
-                var data = Edu.parseJson(text, null);
+                let data = Edu.parseJson(text, null);
                 if (data === null && text && text.trim()) {
                     throw new Error('Invalid JSON');
                 }
@@ -92,7 +91,7 @@ var Edu = window.EduPlatform;
     }
 
     function buildAboutUrl(course) {
-        var key = course.course_id || course.id;
+        let key = course.course_id || course.id;
         if (!key) return 'https://www.edx.org';
         return EDX_ORIGIN + '/courses/' + encodeURIComponent(key) + '/about';
     }
@@ -106,18 +105,18 @@ var Edu = window.EduPlatform;
     }
 
     function renderCard(course) {
-        var rawId = course.course_id || course.id || course.slug || 'c';
-        var safeId = String(rawId).replace(/[^a-zA-Z0-9_-]/g, '-');
-        var li = document.createElement('li');
-        var article = document.createElement('article');
+        let rawId = course.course_id || course.id || course.slug || 'c';
+        let safeId = String(rawId).replace(/[^a-zA-Z0-9_-]/g, '-');
+        let li = document.createElement('li');
+        let article = document.createElement('article');
         article.className = 'course-card course-card--edx';
         article.setAttribute('aria-labelledby', 'edx-card-' + safeId);
 
-        var imgUrl = pickCourseImage(course);
+        let imgUrl = pickCourseImage(course);
         if (imgUrl) {
-            var media = document.createElement('div');
+            let media = document.createElement('div');
             media.className = 'course-card__media';
-            var img = document.createElement('img');
+            let img = document.createElement('img');
             img.src = imgUrl;
             img.alt = '';
             img.loading = 'lazy';
@@ -126,41 +125,41 @@ var Edu = window.EduPlatform;
             article.appendChild(media);
         }
 
-        var category = document.createElement('span');
+        let category = document.createElement('span');
         category.className = 'course-card__category';
         category.textContent = course.org ? String(course.org).toUpperCase() : 'edX';
         article.appendChild(category);
 
-        var title = document.createElement('h3');
+        let title = document.createElement('h3');
         title.className = 'course-card__title';
         title.id = 'edx-card-' + safeId;
         title.textContent = course.name || course.number || 'Курс';
         article.appendChild(title);
 
-        var desc = document.createElement('p');
+        let desc = document.createElement('p');
         desc.className = 'course-card__desc';
-        var shortDesc = course.short_description || '';
+        let shortDesc = course.short_description || '';
         desc.textContent = Edu.truncateText(shortDesc, 220, true) || '';
         article.appendChild(desc);
 
-        var meta = document.createElement('div');
+        let meta = document.createElement('div');
         meta.className = 'course-card__meta';
         meta.setAttribute('role', 'group');
         meta.setAttribute('aria-label', 'Параметры курса');
 
-        var typeEl = document.createElement('span');
+        let typeEl = document.createElement('span');
         typeEl.className = 'course-card__duration';
         typeEl.textContent = course.start_display || course.number || '';
         meta.appendChild(typeEl);
 
-        var badge = document.createElement('span');
+        let badge = document.createElement('span');
         badge.className = 'course-card__badge';
         badge.textContent = 'edX';
         meta.appendChild(badge);
 
         article.appendChild(meta);
 
-        var cta = document.createElement('a');
+        let cta = document.createElement('a');
         cta.className = 'course-card__cta';
         cta.href = buildAboutUrl(course);
         cta.target = '_blank';
@@ -173,28 +172,28 @@ var Edu = window.EduPlatform;
     }
 
     function initEdxCatalog() {
-        var grid = document.getElementById('edx-courses-grid');
-        var gridWrap = document.getElementById('edx-grid-wrap');
-        var pageLoadingEl = document.getElementById('edx-page-loading');
-        var statusEl = document.getElementById('edx-status');
-        var errorEl = document.getElementById('edx-error');
-        var catalogRoot = document.querySelector('.edx-catalog');
-        var cacheHintEl = document.getElementById('edx-cache-hint');
-        var clearBtn = document.getElementById('edx-clear-cache');
-        var paginationNav = document.getElementById('edx-pagination');
-        var numbersEl = document.getElementById('edx-pagination-numbers');
-        var btnFirst = document.getElementById('edx-page-first');
-        var btnPrev = document.getElementById('edx-page-prev');
-        var btnNext = document.getElementById('edx-page-next');
-        var btnLast = document.getElementById('edx-page-last');
+        let grid = document.getElementById('edx-courses-grid');
+        let gridWrap = document.getElementById('edx-grid-wrap');
+        let pageLoadingEl = document.getElementById('edx-page-loading');
+        let statusEl = document.getElementById('edx-status');
+        let errorEl = document.getElementById('edx-error');
+        let catalogRoot = document.querySelector('.edx-catalog');
+        let cacheHintEl = document.getElementById('edx-cache-hint');
+        let clearBtn = document.getElementById('edx-clear-cache');
+        let paginationNav = document.getElementById('edx-pagination');
+        let numbersEl = document.getElementById('edx-pagination-numbers');
+        let btnFirst = document.getElementById('edx-page-first');
+        let btnPrev = document.getElementById('edx-page-prev');
+        let btnNext = document.getElementById('edx-page-next');
+        let btnLast = document.getElementById('edx-page-last');
         if (!grid) return;
 
         ensureApiConfig();
 
-        var currentPage = 1;
-        var totalPages = 0;
-        var totalCount = null;
-        var requestBusy = false;
+        let currentPage = 1;
+        let totalPages = 0;
+        let totalCount = null;
+        let requestBusy = false;
 
         function setPageLoading(on) {
             if (gridWrap) {
@@ -206,7 +205,7 @@ var Edu = window.EduPlatform;
         }
 
         function updateNavDisabled() {
-            var dis = requestBusy;
+            let dis = requestBusy;
             if (btnFirst) btnFirst.disabled = dis || currentPage <= 1;
             if (btnPrev) btnPrev.disabled = dis || currentPage <= 1;
             if (btnNext) btnNext.disabled = dis || !totalPages || currentPage >= totalPages;
@@ -232,7 +231,7 @@ var Edu = window.EduPlatform;
 
         function updateStatus() {
             if (!statusEl) return;
-            var parts = [];
+            let parts = [];
             if (totalPages > 0) {
                 parts.push('Страница ' + currentPage + ' из ' + totalPages);
             }
@@ -244,11 +243,11 @@ var Edu = window.EduPlatform;
 
         function applyResponse(data) {
             while (grid.firstChild) grid.removeChild(grid.firstChild);
-            var results = (data && data.results) || [];
+            let results = (data && data.results) || [];
             results.forEach(function (c) {
                 grid.appendChild(renderCard(c));
             });
-            var p = data && data.pagination;
+            let p = data && data.pagination;
             if (p) {
                 if (typeof p.count === 'number') totalCount = p.count;
                 if (typeof p.num_pages === 'number') totalPages = p.num_pages;
@@ -266,11 +265,11 @@ var Edu = window.EduPlatform;
             paginationNav.hidden = false;
             while (numbersEl.firstChild) numbersEl.removeChild(numbersEl.firstChild);
 
-            var maxBtns = 7;
-            var start = 1;
-            var end = totalPages;
+            let maxBtns = 7;
+            let start = 1;
+            let end = totalPages;
             if (totalPages > maxBtns) {
-                var half = Math.floor(maxBtns / 2);
+                let half = Math.floor(maxBtns / 2);
                 start = Math.max(1, currentPage - half);
                 end = Math.min(totalPages, start + maxBtns - 1);
                 if (end - start < maxBtns - 1) {
@@ -279,7 +278,7 @@ var Edu = window.EduPlatform;
             }
 
             function addEllipsis() {
-                var span = document.createElement('span');
+                let span = document.createElement('span');
                 span.className = 'edx-pagination__ellipsis';
                 span.setAttribute('aria-hidden', 'true');
                 span.textContent = '…';
@@ -287,7 +286,7 @@ var Edu = window.EduPlatform;
             }
 
             function addNum(p) {
-                var btn = document.createElement('button');
+                let btn = document.createElement('button');
                 btn.type = 'button';
                 btn.className = 'edx-pagination__num';
                 if (p === currentPage) btn.classList.add('is-active');
@@ -304,7 +303,7 @@ var Edu = window.EduPlatform;
                 addNum(1);
                 if (start > 2) addEllipsis();
             }
-            for (var i = start; i <= end; i++) {
+            for (let i = start; i <= end; i++) {
                 addNum(i);
             }
             if (end < totalPages) {
@@ -330,7 +329,7 @@ var Edu = window.EduPlatform;
                 setPageLoading(true);
                 setCacheHint(false);
 
-                var cached = null;
+                let cached = null;
                 if (!opts.skipCache) {
                     cached = getPageFromCache(pageNum);
                     if (cached) {
