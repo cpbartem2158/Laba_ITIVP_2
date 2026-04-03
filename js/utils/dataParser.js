@@ -18,16 +18,15 @@ Edu.stringifyJson = function (value, fallback) {
     }
 };
 
-export const parseJSON = (joinString) => {
+Edu.parseJSON = function (joinString) {
     try {
         return JSON.parse(joinString);
     } catch (e) {
-        console.error('Error parsing JSON:', e);
-        return null;
+        return fallback;
     }
-}
+};
 
-export const dormatDate = (dateString) => {
+Edu.formatDate = function (dateString) {
     try {
         const date = new Date(dateString);
         if (isNaN(date.getTime())) {
@@ -46,7 +45,7 @@ export const dormatDate = (dateString) => {
     }
 }
 
-export const truncateText = (text, maxLength, useWordBoundary = true) => {
+Edu.truncateText = function (text, maxLength, useWordBoundary = true) {
     if (!text || text.length <= maxLength) return text;
 
     let truncatedText = text.substring(0, maxLength);
@@ -61,7 +60,7 @@ export const truncateText = (text, maxLength, useWordBoundary = true) => {
     return truncatedText + '...';
 }
 
-export const createElementFromData = (data, template) => {
+Edu.createElementFromData = function (data, template) {
     try {
         let html = template;
 
@@ -80,7 +79,7 @@ export const createElementFromData = (data, template) => {
     }
 }
 
-export const formatPhoneNumber = (number, options = {}) => {
+Edu.formatPhoneNumber = function (number, options = {}) {
     const defaults = {
         minimumFractionDigits: 0,
         maximumFractionDigits: 2,
@@ -89,11 +88,11 @@ export const formatPhoneNumber = (number, options = {}) => {
     return new Intl.NumberFormat('ru-RU', { ...defaults, ...options }).format(number);
 }
 
-export const formatCurrency = (amount, currency = 'BYN') => {
+Edu.formatCurrency = function (amount, currency = 'BYN') {
     return new Intl.NumberFormat('ru-RU', { style: 'currency', currency }).format(amount);
 }
 
-export const buildQueryString = (params) => {
+Edu.buildQueryString = function (params) {
     const searchParams = new URLSearchParams();
 
     Object.keys(params).forEach(key => {
@@ -105,7 +104,7 @@ export const buildQueryString = (params) => {
     return searchParams.toString();
 }
 
-export const getNestedValue = (obj, path, defaultValue = null) => {
+Edu.getNestedValue = function (obj, path, defaultValue = null) {
     try {
         const value = path.split('.').reduce((current, key) => {
             return current && current[key] !== undefined ? current[key] : undefined;
@@ -118,7 +117,7 @@ export const getNestedValue = (obj, path, defaultValue = null) => {
     }
 }
 
-export const filterData = (data, filters) => {
+Edu.filterData = function (data, filters) {
     return data.filter((item) => {
         return Object.keys(filters).every(key => {
             const filterValue = filters[key];
@@ -137,7 +136,7 @@ export const filterData = (data, filters) => {
     });
 }
 
-export const sortData = (data, key, direction = 'asc') => {
+Edu.sortData = function (data, key, direction = 'asc') {
     return [...data].sort((a, b) => {
         const aValue = a(key);
         const bValue = b(key);
@@ -153,19 +152,19 @@ export const sortData = (data, key, direction = 'asc') => {
     });
 }
 
-export const generateId = (prefix = '') => {
+Edu.generateId = function (prefix = '') {
     return prefix + Date.now().toString(36) + Math.random().toString(36).substring(2, 15);
 }
 
-export const isObject = (value) => {
+Edu.isObject = function (value) {
     return value && typeof value === 'object' && !Array.isArray(value);
 }
 
-export const isArray = (value) => {
+Edu.isArray = function (value) {
     return Array.isArray(value);
 }
 
-export const isEmpty = (value) => {
+Edu.isEmpty = function (value) {
     if (value === null || value === undefined) return true;
     if (typeof value === 'string') return value.trim() === '';
     if (Array.isArray(value)) return value.length === 0;

@@ -3,3 +3,7 @@ node_modules/
 *.log
 .idea
 .env
+backend/.env
+backend/.venv/
+__pycache__/
+*.pyc

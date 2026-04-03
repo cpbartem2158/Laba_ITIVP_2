@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Каталог онлайн-курсов edX на EduPlatform: данные с courses.edx.org (Open edX API)."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/edx-catalog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Unbounded:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Каталог edX — EduPlatform</title>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link"
+      >Перейти к основному содержимому</a
+    >
+
+    <header class="header">
+      <div class="header__container">
+        <div class="header__brand">
+          <a
+            href="index.html"
+            class="header__logo"
+            aria-label="EduPlatform — главная"
+          >
+            <img
+              src="images/logo.svg"
+              alt=""
+              width="42"
+              height="42"
+              aria-hidden="true"
+            />
+            <span class="header__brand-name">EduPlatform</span>
+          </a>
+        </div>
+
+        <nav class="header__nav" id="main-nav" aria-label="Основная навигация">
+          <ul class="header__nav-list">
+            <li><a href="index.html#about">О платформе</a></li>
+            <li><a href="index.html#courses">Курсы</a></li>
+            <li>
+              <a href="courses-edx.html" aria-current="page">Каталог edX</a>
+            </li>
+            <li><a href="index.html#teachers">Преподаватели</a></li>
+            <li><a href="index.html#reviews">Отзывы</a></li>
+          </ul>
+        </nav>
+
+        <a href="index.html#contact" class="header__cta button button--primary"
+          >Связаться с нами</a
+        >
+
+        <button
+          class="header__burger"
+          id="burger-btn"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Открыть меню"
+        >
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" class="edx-page">
+      <header class="edx-page__header">
+        <p class="edx-page__breadcrumb">
+          <a href="index.html">Главная</a> /
+          <a href="index.html#courses">Курсы</a> / Каталог edX
+        </p>
+        <h1 class="edx-page__title">Каталог edX</h1>
+        <p class="edx-page__intro">
+          Карточки строятся по открытому API
+          <a href="https://courses.edx.org" rel="noopener noreferrer"
+            >courses.edx.org</a
+          >
+        Ссылка «Страница курса» ведёт
+          в каталог edX.
+        </p>
+      </header>
+
+      <section class="edx-catalog courses" aria-labelledby="edx-catalog-title">
+        <h2 id="edx-catalog-title" class="visually-hidden">
+          Список курсов edX
+        </h2>
+        <div class="edx-catalog__toolbar">
+          <p id="edx-status" class="edx-catalog__status" aria-live="polite"></p>
+          <p id="edx-cache-hint" class="edx-catalog__cache-hint" hidden></p>
+          <p id="edx-error" class="edx-catalog__error" role="alert" hidden></p>
+          <div class="edx-catalog__actions">
+            <span class="edx-catalog__spinner" aria-hidden="true"
+              >Загрузка…</span
+            >
+            <button
+              type="button"
+              id="edx-clear-cache"
+              class="button button--secondary edx-catalog__clear-cache"
+            >
+              Очистить кэш
+            </button>
+          </div>
+        </div>
+        <div
+          class="edx-catalog__grid-wrap"
+          id="edx-grid-wrap"
+          aria-busy="false"
+        >
+          <div
+            id="edx-page-loading"
+            class="edx-catalog__page-loading"
+            hidden
+            role="status"
+            aria-live="polite"
+          >
+            <span class="edx-catalog__page-loading-inner"
+              >Загрузка страницы…</span
+            >
+          </div>
+          <ul id="edx-courses-grid" class="courses__grid"></ul>
+        </div>
+        <nav
+          id="edx-pagination"
+          class="edx-pagination"
+          aria-label="Страницы каталога"
+          hidden
+        >
+          <button
+            type="button"
+            id="edx-page-first"
+            class="edx-pagination__arrow"
+            aria-label="Первая страница"
+          >
+            «
+          </button>
+          <button
+            type="button"
+            id="edx-page-prev"
+            class="edx-pagination__arrow"
+            aria-label="Предыдущая страница"
+          >
+            ‹
+          </button>
+          <div
+            id="edx-pagination-numbers"
+            class="edx-pagination__numbers"
+            role="group"
+            aria-label="Номера страниц"
+          ></div>
+          <button
+            type="button"
+            id="edx-page-next"
+            class="edx-pagination__arrow"
+            aria-label="Следующая страница"
+          >
+            ›
+          </button>
+          <button
+            type="button"
+            id="edx-page-last"
+            class="edx-pagination__arrow"
+            aria-label="Последняя страница"
+          >
+            »
+          </button>
+        </nav>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="footer__container">
+        <div class="footer__brand">
+          <a
+            href="index.html"
+            class="footer__logo"
+            aria-label="EduPlatform — главная"
+          >
+            <img
+              src="images/logo.svg"
+              alt=""
+              width="42"
+              height="42"
+              aria-hidden="true"
+            />
+            <span class="footer__brand-name">EduPlatform</span>
+          </a>
+        </div>
+        <nav class="footer__nav" aria-label="Навигация в подвале">
+          <ul class="footer__nav-list">
+            <li><a href="index.html#about">О платформе</a></li>
+            <li><a href="index.html#courses">Курсы</a></li>
+            <li><a href="courses-edx.html">Каталог edX</a></li>
+            <li><a href="index.html#teachers">Преподаватели</a></li>
+            <li><a href="index.html#reviews">Отзывы</a></li>
+          </ul>
+        </nav>
+        <section class="footer__callback" aria-labelledby="callback-title">
+          <h2 id="callback-title" class="footer__callback-title">
+            Заявка на обратный звонок
+          </h2>
+          <form
+            class="footer__form"
+            action="#"
+            method="post"
+            aria-labelledby="callback-title"
+            novalidate
+          >
+            <label for="phone-edx" class="visually-hidden">Ваш телефон</label>
+            <input
+              type="tel"
+              id="phone-edx"
+              name="phone"
+              class="footer__input"
+              placeholder="Ваш телефон"
+              autocomplete="tel"
+              aria-describedby="phone-edx-error"
+              aria-invalid="false"
+              required
+            />
+            <div
+              id="phone-edx-error"
+              class="footer__error"
+              role="alert"
+              aria-live="polite"
+              hidden
+            ></div>
+            <button type="submit" class="button button--primary footer__submit">
+              Заказать звонок
+            </button>
+          </form>
+        </section>
+      </div>
+      <p class="footer__copyright">&copy; EduPlatform. Все права защищены.</p>
+    </footer>
+
+    <script src="js/utils/dataParser.js"></script>
+    <script src="js/storage/localStorage.js"></script>
+    <script src="js/storage/sessionStorage.js"></script>
+    <script src="js/api/config.js"></script>
+    <script src="js/api/apiService.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/edx-catalog.js"></script>
+  </body>
+</html>

@@ -1,333 +1,548 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EduPlatform — современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Unbounded:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="EduPlatform — современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Unbounded:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>EduPlatform — учись онлайн. Развивайся быстрее.</title>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "@id": "#organization",
-      "name": "EduPlatform",
-      "description": "Современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 5,
-        "bestRating": 5,
-        "worstRating": 1,
-        "ratingCount": 2,
-        "reviewCount": 2
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "itemReviewed": { "@id": "#organization" },
-          "author": { "@type": "Person", "name": "Артем Аникейчик" },
-          "datePublished": "2026-10-02",
-          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
-          "reviewBody": "Прошел курс по веб-разработке и уже через месяц взял первый заказ"
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "@id": "#organization",
+        "name": "EduPlatform",
+        "description": "Современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 5,
+          "bestRating": 5,
+          "worstRating": 1,
+          "ratingCount": 2,
+          "reviewCount": 2
         },
-        {
-          "@type": "Review",
-          "itemReviewed": { "@id": "#organization" },
-          "author": { "@type": "Person", "name": "Ярослав Бельмач" },
-          "datePublished": "2026-05-10",
-          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
-          "reviewBody": "Отличная платформа — всё структурировано и без воды"
-        }
-      ]
-    }
+        "review": [
+          {
+            "@type": "Review",
+            "itemReviewed": { "@id": "#organization" },
+            "author": { "@type": "Person", "name": "Артем Аникейчик" },
+            "datePublished": "2026-10-02",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": 5,
+              "bestRating": 5,
+              "worstRating": 1
+            },
+            "reviewBody": "Прошел курс по веб-разработке и уже через месяц взял первый заказ"
+          },
+          {
+            "@type": "Review",
+            "itemReviewed": { "@id": "#organization" },
+            "author": { "@type": "Person", "name": "Ярослав Бельмач" },
+            "datePublished": "2026-05-10",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": 5,
+              "bestRating": 5,
+              "worstRating": 1
+            },
+            "reviewBody": "Отличная платформа — всё структурировано и без воды"
+          }
+        ]
+      }
     </script>
-</head>
-<body>
-    <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link"
+      >Перейти к основному содержимому</a
+    >
 
     <header class="header">
-        <div class="header__container">
-            <div class="header__brand">
-                <a href="/" class="header__logo" aria-label="EduPlatform — главная">
-                    <img src="images/logo.svg" alt="" width="42" height="42" aria-hidden="true">
-                    <span class="header__brand-name">EduPlatform</span>
-                </a>
-            </div>
-
-            <nav class="header__nav" id="main-nav" aria-label="Основная навигация">
-                <ul class="header__nav-list">
-                    <li><a href="#about">О платформе</a></li>
-                    <li><a href="#courses">Курсы</a></li>
-                    <li><a href="#teachers">Преподаватели</a></li>
-                    <li><a href="#reviews">Отзывы</a></li>
-                </ul>
-            </nav>
-
-            <a href="#contact" class="header__cta button button--primary">Связаться с нами</a>
-
-            <button
-                class="header__burger"
-                id="burger-btn"
-                aria-controls="main-nav"
-                aria-expanded="false"
-                aria-label="Открыть меню"
-            >
-                <span class="header__burger-line"></span>
-                <span class="header__burger-line"></span>
-                <span class="header__burger-line"></span>
-            </button>
+      <div class="header__container">
+        <div class="header__brand">
+          <a href="/" class="header__logo" aria-label="EduPlatform — главная">
+            <img
+              src="images/logo.svg"
+              alt=""
+              width="42"
+              height="42"
+              aria-hidden="true"
+            />
+            <span class="header__brand-name">EduPlatform</span>
+          </a>
         </div>
+
+        <nav class="header__nav" id="main-nav" aria-label="Основная навигация">
+          <ul class="header__nav-list">
+            <li><a href="#about">О платформе</a></li>
+            <li><a href="#courses">Курсы</a></li>
+            <li><a href="courses-edx.html">Каталог edX</a></li>
+            <li><a href="#teachers">Преподаватели</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+          </ul>
+        </nav>
+
+        <a href="#contact" class="header__cta button button--primary"
+          >Связаться с нами</a
+        >
+
+        <button
+          class="header__burger"
+          id="burger-btn"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Открыть меню"
+        >
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+        </button>
+      </div>
     </header>
 
     <main id="main-content">
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero__content">
-                <h1 id="hero-title" class="hero__title">EduPlatform — учись онлайн. Развивайся быстрее.</h1>
-                <p class="hero__description">Современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.</p>
-                <div class="hero__actions">
-                    <a href="#courses" class="button button--primary">Начать обучение</a>
-                    <a href="#courses" class="button button--secondary">Посмотреть курсы</a>
-                </div>
-            </div>
-            <figure class="hero__image">
-                <div class="hero__image-placeholder" role="img" aria-label="Иллюстрация обучения">
-                   <img src="images/hero-image.svg" alt="Иллюстрация обучения" width="688" height="492">
-                </div>
-            </figure>
-        </section>
-        <section class="audience" id="about" aria-labelledby="audience-title">
-            <h2 id="audience-title" class="section-title">Кому подойдёт EduPlatform</h2>
-            <ul class="audience__list">
-                <li class="audience__card">
-                    <article>
-                        <h3>Для школьников</h3>
-                        <p>Подготовка к экзаменам, развитие логики, IT и soft skills.</p>
-                    </article>
-                </li>
-                <li class="audience__card">
-                    <article>
-                        <h3>Для студентов</h3>
-                        <p>Практические курсы, которые дополняют вузовскую программу и помогают с карьерой.</p>
-                    </article>
-                </li>
-                <li class="audience__card">
-                    <article>
-                        <h3>Для специалистов</h3>
-                        <p>Повышение квалификации, новые профессии и актуальные навыки для рынка труда.</p>
-                    </article>
-                </li>
-            </ul>
-        </section>
-
-        <section class="advantages" id="advantages" aria-labelledby="advantages-title">
-    <h2 id="advantages-title" class="section-title section-title--light">Почему EduPlatform</h2>
-    
-    <div class="advantages__row">
-        <div class="advantages__content">
-            <ul class="advantages__list">
-                <li class="advantages__item">
-                    <article>
-                        <h3>Актуальные программы</h3>
-                        <p>Курсы обновляются под требования рынка</p>
-                    </article>
-                </li>
-                <li class="advantages__item">
-                    <article>
-                        <h3>Эксперты-практики</h3>
-                        <p>Преподаватели с реальным опытом</p>
-                    </article>
-                </li>
-                <li class="advantages__item">
-                    <article>
-                        <h3>Результат</h3>
-                        <p>Навыки, которые можно применять сразу</p>
-                    </article>
-                </li>
-                <li class="advantages__item">
-                    <article>
-                        <h3>Гибкий график</h3>
-                        <p>Учись в удобное время</p>
-                    </article>
-                </li>
-            </ul>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <h1 id="hero-title" class="hero__title">
+            EduPlatform — учись онлайн. Развивайся быстрее.
+          </h1>
+          <p class="hero__description">
+            Современная образовательная платформа для школьников, студентов и
+            специалистов. Курсы, которые действительно работают.
+          </p>
+          <div class="hero__actions">
+            <a href="#courses" class="button button--primary"
+              >Начать обучение</a
+            >
+            <a href="#courses" class="button button--secondary"
+              >Посмотреть курсы</a
+            >
+          </div>
         </div>
-        
-        <figure class="advantages__image">
-            <div class="advantages__image-placeholder" role="img" aria-label="Преимущества обучения">
-                <img src="images/advantages-image.svg" alt="Преимущества обучения" width="547" height="310">
-            </div>
+        <figure class="hero__image">
+          <div
+            class="hero__image-placeholder"
+            role="img"
+            aria-label="Иллюстрация обучения"
+          >
+            <img
+              src="images/hero-image.svg"
+              alt="Иллюстрация обучения"
+              width="688"
+              height="492"
+            />
+          </div>
         </figure>
-    </div>
-</section>
+      </section>
+      <section class="audience" id="about" aria-labelledby="audience-title">
+        <h2 id="audience-title" class="section-title">
+          Кому подойдёт EduPlatform
+        </h2>
+        <ul class="audience__list">
+          <li class="audience__card">
+            <article>
+              <h3>Для школьников</h3>
+              <p>Подготовка к экзаменам, развитие логики, IT и soft skills.</p>
+            </article>
+          </li>
+          <li class="audience__card">
+            <article>
+              <h3>Для студентов</h3>
+              <p>
+                Практические курсы, которые дополняют вузовскую программу и
+                помогают с карьерой.
+              </p>
+            </article>
+          </li>
+          <li class="audience__card">
+            <article>
+              <h3>Для специалистов</h3>
+              <p>
+                Повышение квалификации, новые профессии и актуальные навыки для
+                рынка труда.
+              </p>
+            </article>
+          </li>
+        </ul>
+      </section>
 
-        <section class="process" id="teachers" aria-labelledby="process-title">
-            <h2 id="process-title" class="section-title">Как проходит обучение</h2>
-            <ol class="process__steps">
-                <li>Выбираешь курс</li>
-                <li>Смотришь видео и выполняешь задания</li>
-                <li>Получаешь обратную связь</li>
-                <li>Закрепляешь навыки на практике</li>
-                <li>Получаешь сертификат</li>
-            </ol>
-            <aside class="process__testimonials" id="reviews" aria-label="Отзывы студентов">
-                <div itemscope itemtype="https://schema.org/EducationalOrganization" itemid="#organization" hidden>
-                    <meta itemprop="name" content="EduPlatform">
-                    <meta itemprop="description" content="EduPlatform — современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.">
-                </div>
-                <div itemscope itemtype="https://schema.org/Course" hidden>
-                    <meta itemprop="name" content="Онлайн-курсы EduPlatform">
-                    <meta itemprop="description" content="EduPlatform — современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают.">
-                    <link itemprop="provider" href="#organization">
-                </div>
-                <article class="testimonial" itemscope itemtype="https://schema.org/Review">
-                    <link itemprop="itemReviewed" href="#organization">
-                    <header class="testimonial__header">
-                        <div class="testimonial__rating" role="img" aria-label="5 из 5 звёзд" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-                            <meta itemprop="ratingValue" content="5">
-                            <meta itemprop="bestRating" content="5">
-                            <span aria-hidden="true">★★★★★</span>
-                        </div>
-                        <time datetime="2026-10-02" itemprop="datePublished">02.10.2026</time>
-                    </header>
-                    <h3 class="testimonial__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        <span itemprop="name">Артем Аникейчик</span>
-                    </h3>
-                    <blockquote>
-                        <p itemprop="reviewBody">Прошел курс по веб-разработке и уже через месяц взял первый заказ</p>
-                    </blockquote>
-                </article>
-                <article class="testimonial" itemscope itemtype="https://schema.org/Review">
-                    <link itemprop="itemReviewed" href="#organization">
-                    <header class="testimonial__header">
-                        <div class="testimonial__rating" role="img" aria-label="5 из 5 звёзд" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-                            <meta itemprop="ratingValue" content="5">
-                            <meta itemprop="bestRating" content="5">
-                            <span aria-hidden="true">★★★★★</span>
-                        </div>
-                        <time datetime="2026-05-10" itemprop="datePublished">10.05.2026</time>
-                    </header>
-                    <h3 class="testimonial__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        <span itemprop="name">Ярослав Бельмач</span>
-                    </h3>
-                    <blockquote>
-                        <p itemprop="reviewBody">Отличная платформа — всё структурировано и без воды</p>
-                    </blockquote>
-                </article>
-            </aside>
-        </section>
+      <section
+        class="advantages"
+        id="advantages"
+        aria-labelledby="advantages-title"
+      >
+        <h2 id="advantages-title" class="section-title section-title--light">
+          Почему EduPlatform
+        </h2>
 
-        <section class="courses" id="courses" aria-labelledby="courses-title">
-            <header class="courses__head">
-                <h2 id="courses-title" class="section-title">Курсы</h2>
-                <p class="courses__lead">Практика, проекты и обратная связь — выбирайте направление и пишите нам о старте набора</p>
-            </header>
-            <ul class="courses__grid">
-                <li>
-                    <article class="course-card" aria-labelledby="course-title-web">
-                        <span class="course-card__category">Программирование</span>
-                        <h3 id="course-title-web" class="course-card__title">Веб-разработка</h3>
-                        <p class="course-card__desc">Вёрстка, JavaScript и основы бэкенда — от первой страницы до проекта в портфолио</p>
-                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
-                            <span class="course-card__duration">4 месяца</span>
-                            <span class="course-card__badge">С нуля</span>
-                        </div>
-                        <a href="course-web.html" class="course-card__cta">Перейти к курсу</a>
-                    </article>
-                </li>
-                <li>
-                    <article class="course-card" aria-labelledby="course-title-python">
-                        <span class="course-card__category">Программирование</span>
-                        <h3 id="course-title-python" class="course-card__title">Python с нуля</h3>
-                        <p class="course-card__desc">Синтаксис, структуры данных и скрипты для задач из реальной жизни</p>
-                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
-                            <span class="course-card__duration">3 месяца</span>
-                            <span class="course-card__badge">С нуля</span>
-                        </div>
-                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
-                    </article>
-                </li>
-                <li>
-                    <article class="course-card" aria-labelledby="course-title-ege">
-                        <span class="course-card__category">Школа и экзамены</span>
-                        <h3 id="course-title-ege" class="course-card__title">ЕГЭ по информатике</h3>
-                        <p class="course-card__desc">Типовые задания, алгоритмы и разбор по материалам ФИПИ</p>
-                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
-                            <span class="course-card__duration">9 месяцев</span>
-                            <span class="course-card__badge">10–11 класс</span>
-                        </div>
-                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
-                    </article>
-                </li>
-                <li>
-                    <article class="course-card" aria-labelledby="course-title-en">
-                        <span class="course-card__category">Языки</span>
-                        <h3 id="course-title-en" class="course-card__title">Английский для IT</h3>
-                        <p class="course-card__desc">Лексика разработчика, переписка с заказчиками и формат собеседований</p>
-                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
-                            <span class="course-card__duration">2 месяца</span>
-                            <span class="course-card__badge">B1+</span>
-                        </div>
-                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
-                    </article>
-                </li>
-                <li>
-                    <article class="course-card" aria-labelledby="course-title-ui">
-                        <span class="course-card__category">Дизайн</span>
-                        <h3 id="course-title-ui" class="course-card__title">UI/UX-дизайн</h3>
-                        <p class="course-card__desc">Figma, композиция и прототипы — от идеи до макета приложения</p>
-                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
-                            <span class="course-card__duration">3 месяца</span>
-                            <span class="course-card__badge">С нуля</span>
-                        </div>
-                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
-                    </article>
-                </li>
-                <li>
-                    <article class="course-card" aria-labelledby="course-title-data">
-                        <span class="course-card__category">Аналитика</span>
-                        <h3 id="course-title-data" class="course-card__title">Анализ данных</h3>
-                        <p class="course-card__desc">SQL, таблицы и визуализация — от сырых данных до понятных выводов</p>
-                        <div class="course-card__meta" role="group" aria-label="Параметры курса">
-                            <span class="course-card__duration">4 месяца</span>
-                            <span class="course-card__badge">Базовый Excel</span>
-                        </div>
-                        <a href="#contact" class="course-card__cta">Узнать о наборе</a>
-                    </article>
-                </li>
+        <div class="advantages__row">
+          <div class="advantages__content">
+            <ul class="advantages__list">
+              <li class="advantages__item">
+                <article>
+                  <h3>Актуальные программы</h3>
+                  <p>Курсы обновляются под требования рынка</p>
+                </article>
+              </li>
+              <li class="advantages__item">
+                <article>
+                  <h3>Эксперты-практики</h3>
+                  <p>Преподаватели с реальным опытом</p>
+                </article>
+              </li>
+              <li class="advantages__item">
+                <article>
+                  <h3>Результат</h3>
+                  <p>Навыки, которые можно применять сразу</p>
+                </article>
+              </li>
+              <li class="advantages__item">
+                <article>
+                  <h3>Гибкий график</h3>
+                  <p>Учись в удобное время</p>
+                </article>
+              </li>
             </ul>
-        </section>
+          </div>
+
+          <figure class="advantages__image">
+            <div
+              class="advantages__image-placeholder"
+              role="img"
+              aria-label="Преимущества обучения"
+            >
+              <img
+                src="images/advantages-image.svg"
+                alt="Преимущества обучения"
+                width="547"
+                height="310"
+              />
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="process" id="teachers" aria-labelledby="process-title">
+        <h2 id="process-title" class="section-title">Как проходит обучение</h2>
+        <ol class="process__steps">
+          <li>Выбираешь курс</li>
+          <li>Смотришь видео и выполняешь задания</li>
+          <li>Получаешь обратную связь</li>
+          <li>Закрепляешь навыки на практике</li>
+          <li>Получаешь сертификат</li>
+        </ol>
+        <aside
+          class="process__testimonials"
+          id="reviews"
+          aria-label="Отзывы студентов"
+        >
+          <div
+            itemscope
+            itemtype="https://schema.org/EducationalOrganization"
+            itemid="#organization"
+            hidden
+          >
+            <meta itemprop="name" content="EduPlatform" />
+            <meta
+              itemprop="description"
+              content="EduPlatform — современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают."
+            />
+          </div>
+          <div itemscope itemtype="https://schema.org/Course" hidden>
+            <meta itemprop="name" content="Онлайн-курсы EduPlatform" />
+            <meta
+              itemprop="description"
+              content="EduPlatform — современная образовательная платформа для школьников, студентов и специалистов. Курсы, которые действительно работают."
+            />
+            <link itemprop="provider" href="#organization" />
+          </div>
+          <article
+            class="testimonial"
+            itemscope
+            itemtype="https://schema.org/Review"
+          >
+            <link itemprop="itemReviewed" href="#organization" />
+            <header class="testimonial__header">
+              <div
+                class="testimonial__rating"
+                role="img"
+                aria-label="5 из 5 звёзд"
+                itemprop="reviewRating"
+                itemscope
+                itemtype="https://schema.org/Rating"
+              >
+                <meta itemprop="ratingValue" content="5" />
+                <meta itemprop="bestRating" content="5" />
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+              <time datetime="2026-10-02" itemprop="datePublished"
+                >02.10.2026</time
+              >
+            </header>
+            <h3
+              class="testimonial__author"
+              itemprop="author"
+              itemscope
+              itemtype="https://schema.org/Person"
+            >
+              <span itemprop="name">Артем Аникейчик</span>
+            </h3>
+            <blockquote>
+              <p itemprop="reviewBody">
+                Прошел курс по веб-разработке и уже через месяц взял первый
+                заказ
+              </p>
+            </blockquote>
+          </article>
+          <article
+            class="testimonial"
+            itemscope
+            itemtype="https://schema.org/Review"
+          >
+            <link itemprop="itemReviewed" href="#organization" />
+            <header class="testimonial__header">
+              <div
+                class="testimonial__rating"
+                role="img"
+                aria-label="5 из 5 звёзд"
+                itemprop="reviewRating"
+                itemscope
+                itemtype="https://schema.org/Rating"
+              >
+                <meta itemprop="ratingValue" content="5" />
+                <meta itemprop="bestRating" content="5" />
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+              <time datetime="2026-05-10" itemprop="datePublished"
+                >10.05.2026</time
+              >
+            </header>
+            <h3
+              class="testimonial__author"
+              itemprop="author"
+              itemscope
+              itemtype="https://schema.org/Person"
+            >
+              <span itemprop="name">Ярослав Бельмач</span>
+            </h3>
+            <blockquote>
+              <p itemprop="reviewBody">
+                Отличная платформа — всё структурировано и без воды
+              </p>
+            </blockquote>
+          </article>
+        </aside>
+      </section>
+
+      <section class="courses" id="courses" aria-labelledby="courses-title">
+        <header class="courses__head">
+          <h2 id="courses-title" class="section-title">Курсы</h2>
+          <p class="courses__lead">
+            Практика, проекты и обратная связь — выбирайте направление и пишите
+            нам о старте набора. Внешний каталог:
+            <a href="courses-edx.html">курсы edX (courses.edx.org)</a>.
+          </p>
+        </header>
+        <ul class="courses__grid">
+          <li>
+            <article class="course-card" aria-labelledby="course-title-web">
+              <span class="course-card__category">Программирование</span>
+              <h3 id="course-title-web" class="course-card__title">
+                Веб-разработка
+              </h3>
+              <p class="course-card__desc">
+                Вёрстка, JavaScript и основы бэкенда — от первой страницы до
+                проекта в портфолио
+              </p>
+              <div
+                class="course-card__meta"
+                role="group"
+                aria-label="Параметры курса"
+              >
+                <span class="course-card__duration">4 месяца</span>
+                <span class="course-card__badge">С нуля</span>
+              </div>
+              <a href="course-web.html" class="course-card__cta"
+                >Перейти к курсу</a
+              >
+            </article>
+          </li>
+          <li>
+            <article class="course-card" aria-labelledby="course-title-python">
+              <span class="course-card__category">Программирование</span>
+              <h3 id="course-title-python" class="course-card__title">
+                Python с нуля
+              </h3>
+              <p class="course-card__desc">
+                Синтаксис, структуры данных и скрипты для задач из реальной
+                жизни
+              </p>
+              <div
+                class="course-card__meta"
+                role="group"
+                aria-label="Параметры курса"
+              >
+                <span class="course-card__duration">3 месяца</span>
+                <span class="course-card__badge">С нуля</span>
+              </div>
+              <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+            </article>
+          </li>
+          <li>
+            <article class="course-card" aria-labelledby="course-title-ege">
+              <span class="course-card__category">Школа и экзамены</span>
+              <h3 id="course-title-ege" class="course-card__title">
+                ЕГЭ по информатике
+              </h3>
+              <p class="course-card__desc">
+                Типовые задания, алгоритмы и разбор по материалам ФИПИ
+              </p>
+              <div
+                class="course-card__meta"
+                role="group"
+                aria-label="Параметры курса"
+              >
+                <span class="course-card__duration">9 месяцев</span>
+                <span class="course-card__badge">10–11 класс</span>
+              </div>
+              <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+            </article>
+          </li>
+          <li>
+            <article class="course-card" aria-labelledby="course-title-en">
+              <span class="course-card__category">Языки</span>
+              <h3 id="course-title-en" class="course-card__title">
+                Английский для IT
+              </h3>
+              <p class="course-card__desc">
+                Лексика разработчика, переписка с заказчиками и формат
+                собеседований
+              </p>
+              <div
+                class="course-card__meta"
+                role="group"
+                aria-label="Параметры курса"
+              >
+                <span class="course-card__duration">2 месяца</span>
+                <span class="course-card__badge">B1+</span>
+              </div>
+              <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+            </article>
+          </li>
+          <li>
+            <article class="course-card" aria-labelledby="course-title-ui">
+              <span class="course-card__category">Дизайн</span>
+              <h3 id="course-title-ui" class="course-card__title">
+                UI/UX-дизайн
+              </h3>
+              <p class="course-card__desc">
+                Figma, композиция и прототипы — от идеи до макета приложения
+              </p>
+              <div
+                class="course-card__meta"
+                role="group"
+                aria-label="Параметры курса"
+              >
+                <span class="course-card__duration">3 месяца</span>
+                <span class="course-card__badge">С нуля</span>
+              </div>
+              <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+            </article>
+          </li>
+          <li>
+            <article class="course-card" aria-labelledby="course-title-data">
+              <span class="course-card__category">Аналитика</span>
+              <h3 id="course-title-data" class="course-card__title">
+                Анализ данных
+              </h3>
+              <p class="course-card__desc">
+                SQL, таблицы и визуализация — от сырых данных до понятных
+                выводов
+              </p>
+              <div
+                class="course-card__meta"
+                role="group"
+                aria-label="Параметры курса"
+              >
+                <span class="course-card__duration">4 месяца</span>
+                <span class="course-card__badge">Базовый Excel</span>
+              </div>
+              <a href="#contact" class="course-card__cta">Узнать о наборе</a>
+            </article>
+          </li>
+        </ul>
+      </section>
     </main>
 
     <footer class="footer" id="contact">
-        <div class="footer__container">
-            <div class="footer__brand">
-                <a href="/" class="footer__logo" aria-label="EduPlatform — главная">
-                    <img src="images/logo.svg" alt="" width="42" height="42" aria-hidden="true">
-                    <span class="footer__brand-name">EduPlatform</span>
-                </a>
-            </div>
-            <nav class="footer__nav" aria-label="Навигация в подвале">
-                <ul class="footer__nav-list">
-                    <li><a href="#about">О платформе</a></li>
-                    <li><a href="#courses">Курсы</a></li>
-                    <li><a href="#teachers">Преподаватели</a></li>
-                    <li><a href="#reviews">Отзывы</a></li>
-                </ul>
-            </nav>
-            <section class="footer__callback" aria-labelledby="callback-title">
-                <h2 id="callback-title" class="footer__callback-title">Заявка на обратный звонок</h2>
-                <form class="footer__form" action="#" method="post" aria-labelledby="callback-title" novalidate>
-                    <label for="phone" class="visually-hidden">Ваш телефон</label>
-                    <input type="tel" id="phone" name="phone" class="footer__input" placeholder="Ваш телефон" autocomplete="tel" aria-describedby="phone-error" aria-invalid="false" required>
-                    <div id="phone-error" class="footer__error" role="alert" aria-live="polite" hidden></div>
-                    <button type="submit" class="button button--primary footer__submit">Заказать звонок</button>
-                </form>
-            </section>
+      <div class="footer__container">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo" aria-label="EduPlatform — главная">
+            <img
+              src="images/logo.svg"
+              alt=""
+              width="42"
+              height="42"
+              aria-hidden="true"
+            />
+            <span class="footer__brand-name">EduPlatform</span>
+          </a>
         </div>
-        <p class="footer__copyright">&copy; EduPlatform. Все права защищены.</p>
+        <nav class="footer__nav" aria-label="Навигация в подвале">
+          <ul class="footer__nav-list">
+            <li><a href="#about">О платформе</a></li>
+            <li><a href="#courses">Курсы</a></li>
+            <li><a href="courses-edx.html">Каталог edX</a></li>
+            <li><a href="#teachers">Преподаватели</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+          </ul>
+        </nav>
+        <section class="footer__callback" aria-labelledby="callback-title">
+          <h2 id="callback-title" class="footer__callback-title">
+            Заявка на обратный звонок
+          </h2>
+          <form
+            class="footer__form"
+            action="#"
+            method="post"
+            aria-labelledby="callback-title"
+            novalidate
+          >
+            <label for="phone" class="visually-hidden">Ваш телефон</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="footer__input"
+              placeholder="Ваш телефон"
+              autocomplete="tel"
+              aria-describedby="phone-error"
+              aria-invalid="false"
+              required
+            />
+            <div
+              id="phone-error"
+              class="footer__error"
+              role="alert"
+              aria-live="polite"
+              hidden
+            ></div>
+            <button type="submit" class="button button--primary footer__submit">
+              Заказать звонок
+            </button>
+          </form>
+        </section>
+      </div>
+      <p class="footer__copyright">&copy; EduPlatform. Все права защищены.</p>
     </footer>
 
     <script src="js/utils/dataParser.js"></script>
@@ -336,5 +551,5 @@
     <script src="js/api/config.js"></script>
     <script src="js/api/apiService.js"></script>
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>

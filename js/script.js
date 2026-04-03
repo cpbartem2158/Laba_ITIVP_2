@@ -256,11 +256,11 @@ class APIIntegrationManager {
         await this.initializeApi();
         this.setupEventListeners();
         this.loadCachedData();
-        this.SetupSecurityMeasures();
+        this.setupSecurityMeasures();
     }
 
     async initializeApi() {
-        this.api = new ApiService(API_CONFIG.openEdx.url, API_CONFIG.openEdx.apiKey);
+        this.api = new ApiService(API_CONFIG.edxProxy.baseUrl, API_CONFIG.edxProxy.apiKey);
     }
 
     setupEventListeners() {
@@ -429,7 +429,7 @@ class APIIntegrationManager {
         const originalFetch = window.fetch;
         window.fetch = async (...args) => {
             console.log('Fetching data:', args[0]);
-            return originalFetch.apply(this, args);
+            return originalFetch.apply(window, args);
         };
     }
 
@@ -471,6 +471,13 @@ class APIIntegrationManager {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    new APIIntegrationManager();
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof LocalStorageService === 'undefined' || typeof ApiService === 'undefined' || typeof API_CONFIG === 'undefined') {
+        return;
+    }
+    try {
+        new APIIntegrationManager();
+    } catch (e) {
+        console.warn('APIIntegrationManager:', e);
+    }
 });

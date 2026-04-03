@@ -294,6 +294,16 @@
     margin: 0;
 }
 
+.courses__lead a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.courses__lead a:hover {
+    color: var(--color-primary-dark);
+}
+
 .courses__grid {
     display: grid;
     grid-template-columns: 1fr;

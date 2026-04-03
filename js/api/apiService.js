@@ -5,7 +5,14 @@ Edu.apiRequest = function (path, options) {
     var cfg = Edu.apiConfig || {};
     var base = cfg.baseUrl || '';
     var url = (base ? base.replace(/\/$/, '') : '') + (path ? String(path) : '');
-    return window.fetch(url, options || {});
+    var opts = options || {};
+    var headers = opts.headers || {};
+    var key = cfg.apiKey;
+    if (key && !headers['X-API-Key'] && !headers['x-api-key']) {
+        headers = Object.assign({}, headers, { 'X-API-Key': key });
+    }
+    opts = Object.assign({}, opts, { headers: headers });
+    return window.fetch(url, opts);
 };
 
 class ApiService {
@@ -87,4 +94,4 @@ class ApiService {
     }
 }
 
-export default ApiService;
+window.ApiService = ApiService;
