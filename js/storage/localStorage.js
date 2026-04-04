@@ -1,23 +1,23 @@
-import { Edu } from '../eduPlatform.js';
+import { parseJson, stringifyJson } from '../utils/dataParser.js';
 
-Edu.STORAGE_COURSE_PROGRESS = 'eduweb-course-progress';
-Edu.STORAGE_COURSE_BOOKMARKS = 'eduweb-course-bookmarks';
+export const STORAGE_COURSE_PROGRESS = 'eduweb-course-progress';
+export const STORAGE_COURSE_BOOKMARKS = 'eduweb-course-bookmarks';
 
-Edu.readJson = function (key, fallback) {
+export function readJson(key, fallback) {
     try {
         let raw = window.localStorage.getItem(key);
-        return Edu.parseJson ? Edu.parseJson(raw, fallback) : JSON.parse(raw);
+        return parseJson(raw, fallback);
     } catch (e) {
         return fallback;
     }
-};
+}
 
-Edu.writeJson = function (key, value) {
+export function writeJson(key, value) {
     try {
-        let raw = Edu.stringifyJson ? Edu.stringifyJson(value, '') : JSON.stringify(value);
+        let raw = stringifyJson(value, '');
         window.localStorage.setItem(key, raw);
     } catch (e) {}
-};
+}
 
 export class LocalStorageService {
     constructor() {
@@ -104,5 +104,3 @@ export class LocalStorageService {
         return this.get(key, null, maxAge) !== null;
     };
 }
-
-Edu.LocalStorageService = LocalStorageService;

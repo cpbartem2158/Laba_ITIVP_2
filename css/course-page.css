@@ -1,5 +1,3 @@
-/* Страница отдельного курса (подключается только на course-web.html) */
-
 .course-page {
     padding-bottom: 48px;
 }
@@ -54,7 +52,6 @@
     gap: 28px;
 }
 
-/* Сайдбар + уроки: общая оболочка, чтобы sticky не перекрывал блок теста ниже */
 .course-main-row {
     display: flex;
     flex-direction: column;
@@ -62,7 +59,6 @@
     min-width: 0;
 }
 
-/* Прогресс курса */
 .course-progress {
     background: var(--color-bg-card);
     border-radius: var(--radius-lg);
@@ -117,7 +113,6 @@
     line-height: 1.35;
 }
 
-/* Боковая колонка: уроки + закладки */
 .course-sidebar {
     background: var(--color-bg-card);
     border-radius: var(--radius-lg);
@@ -190,7 +185,6 @@
     border-radius: 4px;
 }
 
-/* Кнопка закладки — состояние допишите в JS (aria-pressed, класс --active) */
 .lesson-bookmark-btn {
     flex-shrink: 0;
     width: 40px;
@@ -225,7 +219,6 @@
     border-color: var(--color-star);
 }
 
-/* Контент уроков */
 .course-content {
     display: flex;
     flex-direction: column;
@@ -290,7 +283,6 @@
     border-radius: 4px;
 }
 
-/* Чекбокс «урок пройден» — к нему привяжите пересчёт прогресс-бара */
 .lesson-complete {
     display: flex;
     align-items: flex-start;
@@ -312,7 +304,6 @@
     cursor: pointer;
 }
 
-/* Тест */
 .course-test {
     background: var(--color-bg-card);
     border-radius: var(--radius-lg);

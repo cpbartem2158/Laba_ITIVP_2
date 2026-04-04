@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Каталог онлайн-курсов edX на EduPlatform: данные с courses.edx.org (Open edX API)."
+      content="Каталог курсов EduPlatform: данные с учебного API, прогресс прохождения."
     />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/edx-catalog.css" />
@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Unbounded:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Каталог edX — EduPlatform</title>
+    <title>Курсы — EduPlatform</title>
   </head>
   <body>
     <a href="#main-content" class="skip-link"
@@ -46,7 +46,7 @@
             <li><a href="index.html#about">О платформе</a></li>
             <li><a href="index.html#courses">Курсы</a></li>
             <li>
-              <a href="courses-edx.html" aria-current="page">Каталог edX</a>
+              <a href="courses.html" aria-current="page">Каталог курсов</a>
             </li>
             <li><a href="index.html#teachers">Преподаватели</a></li>
             <li><a href="index.html#reviews">Отзывы</a></li>
@@ -71,107 +71,80 @@
       </div>
     </header>
 
-    <main id="main-content" class="edx-page">
-      <header class="edx-page__header">
-        <p class="edx-page__breadcrumb">
+    <main id="main-content" class="courses-page">
+      <header class="courses-page__header">
+        <p class="courses-page__breadcrumb">
           <a href="index.html">Главная</a> /
-          <a href="index.html#courses">Курсы</a> / Каталог edX
+          <a href="index.html#courses">Курсы</a> / Каталог
         </p>
-        <h1 class="edx-page__title">Каталог edX</h1>
-        <p class="edx-page__intro">
-          Карточки строятся по открытому API
-          <a href="https://courses.edx.org" rel="noopener noreferrer"
-            >courses.edx.org</a
-          >
-        Ссылка «Страница курса» ведёт
-          в каталог edX.
+        <h1 class="courses-page__title">Курсы</h1>
+        <p class="courses-page__intro">
+          Список приходит с локального backend. Карточки кэшируются в браузере;
+          кнопка «Очистить кэш» сбрасывает сохранённые данные и запрашивает
+          список заново.
         </p>
       </header>
 
-      <section class="edx-catalog courses" aria-labelledby="edx-catalog-title">
-        <h2 id="edx-catalog-title" class="visually-hidden">
-          Список курсов edX
+      <section
+        class="courses-catalog courses"
+        aria-labelledby="courses-catalog-title"
+      >
+        <h2 id="courses-catalog-title" class="visually-hidden">
+          Список курсов
         </h2>
-        <div class="edx-catalog__toolbar">
-          <p id="edx-status" class="edx-catalog__status" aria-live="polite"></p>
-          <p id="edx-cache-hint" class="edx-catalog__cache-hint" hidden></p>
-          <p id="edx-error" class="edx-catalog__error" role="alert" hidden></p>
-          <div class="edx-catalog__actions">
-            <span class="edx-catalog__spinner" aria-hidden="true"
+        <div class="courses-catalog__toolbar">
+          <div class="courses-catalog__actions">
+            <button
+              type="button"
+              id="courses-refresh"
+              class="button button--primary courses-catalog__refresh"
+            >
+              Обновить
+            </button>
+            <span class="courses-catalog__spinner" aria-hidden="true"
               >Загрузка…</span
             >
             <button
               type="button"
-              id="edx-clear-cache"
-              class="button button--secondary edx-catalog__clear-cache"
+              id="courses-clear-cache"
+              class="button button--secondary courses-catalog__clear-cache"
             >
               Очистить кэш
             </button>
           </div>
+          <p
+            id="courses-status"
+            class="courses-catalog__status"
+            aria-live="polite"
+          ></p>
+          <p
+            id="courses-cache-hint"
+            class="courses-catalog__cache-hint"
+            hidden
+          ></p>
+          <p
+            id="courses-error"
+            class="courses-catalog__error"
+            role="alert"
+            hidden
+          ></p>
         </div>
         <div
-          class="edx-catalog__grid-wrap"
-          id="edx-grid-wrap"
+          class="courses-catalog__grid-wrap"
+          id="courses-grid-wrap"
           aria-busy="false"
         >
           <div
-            id="edx-page-loading"
-            class="edx-catalog__page-loading"
+            id="courses-loading"
+            class="courses-catalog__loading"
             hidden
             role="status"
             aria-live="polite"
           >
-            <span class="edx-catalog__page-loading-inner"
-              >Загрузка страницы…</span
-            >
+            <span class="courses-catalog__loading-inner">Загрузка…</span>
           </div>
-          <ul id="edx-courses-grid" class="courses__grid"></ul>
+          <ul id="courses-grid" class="courses__grid"></ul>
         </div>
-        <nav
-          id="edx-pagination"
-          class="edx-pagination"
-          aria-label="Страницы каталога"
-          hidden
-        >
-          <button
-            type="button"
-            id="edx-page-first"
-            class="edx-pagination__arrow"
-            aria-label="Первая страница"
-          >
-            «
-          </button>
-          <button
-            type="button"
-            id="edx-page-prev"
-            class="edx-pagination__arrow"
-            aria-label="Предыдущая страница"
-          >
-            ‹
-          </button>
-          <div
-            id="edx-pagination-numbers"
-            class="edx-pagination__numbers"
-            role="group"
-            aria-label="Номера страниц"
-          ></div>
-          <button
-            type="button"
-            id="edx-page-next"
-            class="edx-pagination__arrow"
-            aria-label="Следующая страница"
-          >
-            ›
-          </button>
-          <button
-            type="button"
-            id="edx-page-last"
-            class="edx-pagination__arrow"
-            aria-label="Последняя страница"
-          >
-            »
-          </button>
-        </nav>
       </section>
     </main>
 
@@ -197,7 +170,7 @@
           <ul class="footer__nav-list">
             <li><a href="index.html#about">О платформе</a></li>
             <li><a href="index.html#courses">Курсы</a></li>
-            <li><a href="courses-edx.html">Каталог edX</a></li>
+            <li><a href="courses.html">Каталог курсов</a></li>
             <li><a href="index.html#teachers">Преподаватели</a></li>
             <li><a href="index.html#reviews">Отзывы</a></li>
           </ul>
@@ -213,20 +186,22 @@
             aria-labelledby="callback-title"
             novalidate
           >
-            <label for="phone-edx" class="visually-hidden">Ваш телефон</label>
+            <label for="phone-courses" class="visually-hidden"
+              >Ваш телефон</label
+            >
             <input
               type="tel"
-              id="phone-edx"
+              id="phone-courses"
               name="phone"
               class="footer__input"
               placeholder="Ваш телефон"
               autocomplete="tel"
-              aria-describedby="phone-edx-error"
+              aria-describedby="phone-courses-error"
               aria-invalid="false"
               required
             />
             <div
-              id="phone-edx-error"
+              id="phone-courses-error"
               class="footer__error"
               role="alert"
               aria-live="polite"
@@ -241,6 +216,6 @@
       <p class="footer__copyright">&copy; EduPlatform. Все права защищены.</p>
     </footer>
 
-    <script type="module" src="js/main-edx.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

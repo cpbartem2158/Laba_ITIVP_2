@@ -1,9 +1,11 @@
-import { Edu } from './eduPlatform.js';
-import { API_CONFIG } from './api/config.js';
-import { ApiService } from './api/apiService.js';
-import { LocalStorageService } from './storage/localStorage.js';
+import {
+    readJson,
+    writeJson,
+    STORAGE_COURSE_PROGRESS,
+    STORAGE_COURSE_BOOKMARKS,
+} from './storage/localStorage.js';
 
-Edu.getPhoneValidationError = function (value) {
+export function getPhoneValidationError(value) {
     let trimmed = (value || '').trim();
     if (!trimmed) return 'Введите номер телефона';
 
@@ -14,9 +16,9 @@ Edu.getPhoneValidationError = function (value) {
     if (trimmed.length === 9 && byMobilePrefixes.indexOf(prefix2) !== -1) return '';
 
     return 'Укажите корректный номер (например, 375 29 XXX-XX-XX)';
-};
+}
 
-Edu.initMobileNav = function () {
+export function initMobileNav() {
     let burgerBtn = document.getElementById('burger-btn');
     let mainNav = document.getElementById('main-nav');
     if (!burgerBtn || !mainNav) return;
@@ -36,7 +38,7 @@ Edu.initMobileNav = function () {
             burgerBtn.setAttribute('aria-label', 'Открыть меню');
         });
     });
-};
+}
 
 function updateCourseProgress() {
     let track = document.getElementById('course-progress-track');
@@ -58,15 +60,10 @@ function updateCourseProgress() {
 }
 
 function initProgressBar() {
-    let readJson = Edu.readJson;
-    let writeJson = Edu.writeJson;
-    if (!readJson || !writeJson) return;
-
-    let key = Edu.STORAGE_COURSE_PROGRESS;
     let checks = document.querySelectorAll('.lesson-progress-check');
     if (!checks.length) return;
 
-    let saved = readJson(key, []);
+    let saved = readJson(STORAGE_COURSE_PROGRESS, []);
     let doneSet = {};
     if (Array.isArray(saved)) {
         saved.forEach(function (id) {
@@ -84,7 +81,7 @@ function initProgressBar() {
                 let lid = c.getAttribute('data-lesson-id');
                 if (lid && c.checked) ids.push(lid);
             });
-            writeJson(key, ids);
+            writeJson(STORAGE_COURSE_PROGRESS, ids);
             updateCourseProgress();
         });
     });
@@ -107,15 +104,10 @@ function applyBookmarkState(btn, active) {
 }
 
 function initBookmarks() {
-    let readJson = Edu.readJson;
-    let writeJson = Edu.writeJson;
-    if (!readJson || !writeJson) return;
-
-    let key = Edu.STORAGE_COURSE_BOOKMARKS;
     let buttons = document.querySelectorAll('.lesson-bookmark-btn');
     if (!buttons.length) return;
 
-    let bookmarkIds = readJson(key, []);
+    let bookmarkIds = readJson(STORAGE_COURSE_BOOKMARKS, []);
     let set = {};
     if (Array.isArray(bookmarkIds)) {
         bookmarkIds.forEach(function (id) {
@@ -144,7 +136,7 @@ function initBookmarks() {
             applyBookmarkState(btn, true);
         }
 
-        writeJson(key, Object.keys(set));
+        writeJson(STORAGE_COURSE_BOOKMARKS, Object.keys(set));
     });
 }
 
@@ -208,9 +200,6 @@ function setFooterPhoneError(input, errorEl, message) {
 }
 
 function initFooterCallbackForm() {
-    let getErr = Edu.getPhoneValidationError;
-    if (!getErr) return;
-
     let forms = document.querySelectorAll('.footer__form');
     forms.forEach(function (form) {
         let input = form.querySelector('.footer__input');
@@ -219,7 +208,7 @@ function initFooterCallbackForm() {
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            let msg = getErr(input.value);
+            let msg = getPhoneValidationError(input.value);
             if (msg) {
                 setFooterPhoneError(input, errorEl, msg);
                 input.focus();
@@ -238,245 +227,10 @@ function initFooterCallbackForm() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (Edu.initMobileNav) Edu.initMobileNav();
+    initMobileNav();
     initHomePageExtras();
     initProgressBar();
     initBookmarks();
     initTest();
     initFooterCallbackForm();
-});
-
-class APIIntegrationManager {
-    constructor() {
-        this.localStorage = new LocalStorageService();
-        this.api = null;
-        this.currentData = null;
-        this.init();
-    }
-
-    async init() {
-        await this.initializeApi();
-        this.setupEventListeners();
-        this.loadCachedData();
-        this.setupSecurityMeasures();
-    }
-
-    async initializeApi() {
-        this.api = new ApiService(API_CONFIG.edxProxy.baseUrl, API_CONFIG.edxProxy.apiKey);
-    }
-
-    setupEventListeners() {
-        const searchForm = document.getElementById('search-form');
-        if (searchForm) {
-            searchForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.handleSearch();
-            });
-        }
-
-        const refreshBtn = document.getElementById('refresh-btn');
-        if (refreshBtn) {
-            refreshBtn.addEventListener('click', () => {
-                this.refreshData();
-            });
-        }
-
-        const clearCacheBtn = document.getElementById('clear-cache-btn');
-        if (clearCacheBtn) {
-            clearCacheBtn.addEventListener('click', () => {
-                this.clearCache();
-            });
-        }
-    }
-
-    async handleSearch() {
-        const searchInput = document.getElementById('search-input');
-        const query = searchInput.value.trim();
-
-        if (!query) {
-            this.showError('Пожалуйста, введите поисковый запрос');
-            return;
-        };
-
-        await this.fetchData({ q: query });
-    }
-    
-    async fetchData(params = {}) {
-        this.showLoading(true);
-
-        try {
-            const cacheKey = `api_data_${JSON.stringify(params)}`;
-            const cachedData = this.localStorage.get(cacheKey, null, 30 * 60 * 1000); // 1 hour
-
-            if (cachedData) {
-                this.currentData = cachedData;
-                this.renderData(cachedData);
-                this.showNotification('Данные загружены из кэша');
-                return;
-            }
-
-            const data = await this.api.get('/api/v1/courses', params);
-            this.currentData = data;
-
-            this.localStorage.set(cacheKey, data);
-            this.localStorage.set('last_api_call', new Date().toISOString());
-            
-            this.renderData(data);
-            this.showNotification('Данные загружены успешно');
-        } catch (error) {
-            this.handleAPIError(error);
-        } finally {
-            this.showLoading(false);
-        }
-    }
-
-    loadCachedData() {
-        const lastData = this.localStorage.get('last_api_data');
-        if (lastData) {
-            this.currentData = lastData;
-            this.renderData(lastData);
-        }
-    }
-
-    handleAPIError(error) {
-        console.error('API error:', error);
-
-        let errorMessage = 'Произошла ошибка при загрузке данных';
-
-        if (error.message.includes('404')) {
-            errorMessage = 'Не найдено данных по вашему запросу';
-        } else if (error.message.includes('429')) {
-            errorMessage = 'Превышено количество запросов. Пожалуйста, попробуйте позже';
-        } else if (error.message.includes('401')) {
-            errorMessage = 'Неверный API ключ. Пожалуйста, проверьте ваш ключ в настройках';
-        } else if (!navigator.onLine) {
-            errorMessage = 'Нет интернет соединения. Пожалуйста, проверьте ваше соединение с интернетом';
-        }
-        
-        this.showError(errorMessage);
-        
-        const cachedData = this.localStorage.get('last_api_data');
-        if (cachedData) {
-            this.showNotification('Данные загружены из кэша');
-            this.renderData(cachedData);
-        }
-    }
-
-    renderData(data) {
-        const container = document.getElementById('data-container');
-        if (!container) return;
-
-        container.innerHTML = '';
-
-        if (data && data.length > 0) {
-            data.forEach(item => {
-                const element = this.createDataElement(item);
-                container.appendChild(element);
-            });
-        } else {
-            container.innerHTML = '<p class="no-data">Нет данных для отображения</p>';
-        }
-    }
-
-    createDataElement(item) {
-        const element = document.createElement('div');
-        element.className = 'course-card';
-
-        element.innerHTML = `
-            <div class="course-card__category">${item.category}</div>
-            <h3 class="course-card__title">${item.title}</h3>
-            <p class="course-card__desc">${item.description}</p>
-            <div class="course-card__meta">
-                <span class="course-card__rating">${item.rating}</span>
-                <span class="course-card__students">${item.students}</span>
-            </div>
-        `;  // TBD
-
-        const saveBtn = element.querySelector('.course-card__save');
-        saveBtn.addEventListener('click', () => {
-            this.saveCourse(item);
-        });
-
-        return element;
-    }
-
-    saveCourse(item) {
-        const bookmarks = this.localStorage.get('bookmarks', []);
-        bookmarks.push({
-            ...item,
-            savedAt: new Date().toISOString()
-        });
-        this.localStorage.set('bookmarks', bookmarks);
-        this.showNotification('Курс добавлен в закладки');
-    }
-
-    async refreshData() {
-        this.localStorage.clearExpired();
-        await this.fetchData();
-    }
-
-    clearCache() {
-        const keys = this.localStorage.getAllKeys();
-        keys.forEach(key => {
-            if (key !== 'app_settings' && key !== 'saved_items') {
-                this.localStorage.remove(key);
-            }
-        });
-        this.showNotification('Кэш очищен');
-    }
-
-    setupSecurityMeasures() {
-        this.localStorage.clearExpired();
-
-        const originalFetch = window.fetch;
-        window.fetch = async (...args) => {
-            console.log('Fetching data:', args[0]);
-            return originalFetch.apply(window, args);
-        };
-    }
-
-    showLoading(show = true) {
-        const loader = document.getElementById('loading-indicator');
-        if (loader) {
-            loader.style.display = show ? 'block' : 'none';
-        }
-    }
-
-    showError(message) {
-        this.showNotification(message, 'error');
-    }
-
-    showNotification(message, type = 'success') {
-        const notification = document.createElement('div');
-        notification.className = 'notification notification-${type}';
-        notification.textContent = message;
-        notification.stele.sccText = `
-            display: block;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #f0f0f0;
-            color: #333;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        `;  // TBD
-
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    try {
-        new APIIntegrationManager();
-    } catch (e) {
-        console.warn('APIIntegrationManager:', e);
-    }
 });

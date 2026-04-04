@@ -1,33 +1,31 @@
-/* Каталог курсов edX (courses-edx.html) */
-
-.edx-page {
+.courses-page {
     padding-bottom: 48px;
 }
 
-.edx-page__header {
+.courses-page__header {
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 32px var(--container-padding) 28px;
 }
 
-.edx-page__breadcrumb {
+.courses-page__breadcrumb {
     font-family: var(--font-secondary);
     font-size: 14px;
     color: var(--color-text-light);
     margin-bottom: 16px;
 }
 
-.edx-page__breadcrumb a {
+.courses-page__breadcrumb a {
     color: var(--color-primary);
     text-decoration: underline;
     text-underline-offset: 2px;
 }
 
-.edx-page__breadcrumb a:hover {
+.courses-page__breadcrumb a:hover {
     color: var(--color-primary-dark);
 }
 
-.edx-page__title {
+.courses-page__title {
     font-family: var(--font-primary);
     font-weight: 700;
     font-size: 26px;
@@ -36,55 +34,37 @@
     margin-bottom: 12px;
 }
 
-.edx-page__intro {
+.courses-page__intro {
     font-family: var(--font-primary);
     font-weight: 300;
     font-size: 16px;
     line-height: 1.45;
     color: var(--color-text-light);
     max-width: 720px;
-    margin-bottom: 8px;
-}
-
-.edx-page__intro a {
-    color: var(--color-primary);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-}
-
-.edx-page__intro a:hover {
-    color: var(--color-primary-dark);
-}
-
-.edx-page__note {
-    font-family: var(--font-secondary);
-    font-size: 13px;
-    color: var(--color-text-muted);
-    max-width: 720px;
     margin-bottom: 0;
 }
 
-.edx-catalog {
+.courses-catalog {
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 8px var(--container-padding) 40px;
 }
 
-.edx-catalog__toolbar {
+.courses-catalog__toolbar {
     display: flex;
     flex-direction: column;
     gap: 14px;
     margin-bottom: 22px;
 }
 
-.edx-catalog__status {
+.courses-catalog__status {
     font-family: var(--font-secondary);
     font-size: 14px;
     color: var(--color-text-muted);
     min-height: 1.25em;
 }
 
-.edx-catalog__error {
+.courses-catalog__error {
     font-family: var(--font-secondary);
     font-size: 14px;
     color: #b00020;
@@ -94,7 +74,7 @@
     border: 1px solid rgba(176, 0, 32, 0.2);
 }
 
-.edx-catalog__error[hidden] {
+.courses-catalog__error[hidden] {
     display: none;
 }
 
@@ -105,44 +85,44 @@
     align-items: center;
 }
 
-.edx-catalog__clear-cache {
+.courses-catalog__clear-cache {
     width: auto;
     min-width: auto;
 }
 
-.edx-catalog__cache-hint {
+.courses-catalog__cache-hint {
     font-family: var(--font-secondary);
     font-size: 13px;
     color: var(--color-primary-dark);
     margin: 0;
 }
 
-.edx-catalog__spinner {
+.courses-catalog__spinner {
     display: none;
     font-family: var(--font-secondary);
     font-size: 14px;
     color: var(--color-primary);
 }
 
-.edx-catalog--loading .edx-catalog__spinner {
+.courses-catalog--loading .courses-catalog__spinner {
     display: inline-block;
 }
 
-.edx-catalog__grid-wrap {
+.courses-catalog__grid-wrap {
     position: relative;
     min-height: 120px;
 }
 
-.edx-catalog__grid-wrap.is-page-loading {
+.courses-catalog__grid-wrap.is-page-loading {
     pointer-events: none;
 }
 
-.edx-catalog__grid-wrap.is-page-loading .courses__grid {
+.courses-catalog__grid-wrap.is-page-loading .courses__grid {
     opacity: 0.45;
     transition: opacity 0.15s ease;
 }
 
-.edx-catalog__page-loading {
+.courses-catalog__loading {
     position: absolute;
     inset: 0;
     z-index: 2;
@@ -155,11 +135,11 @@
     border-radius: var(--radius-lg);
 }
 
-.edx-catalog__page-loading[hidden] {
+.courses-catalog__loading[hidden] {
     display: none;
 }
 
-.edx-catalog__page-loading-inner {
+.courses-catalog__loading-inner {
     font-family: var(--font-primary);
     font-weight: 600;
     font-size: 16px;
@@ -197,6 +177,33 @@
     overflow: hidden;
 }
 
+.course-card--edx .course-card__progress {
+    margin: 10px 0 14px;
+}
+
+.course-card--edx .course-card__progress-label {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 6px;
+}
+
+.course-card--edx .course-card__progress-bar {
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(0, 31, 72, 0.1);
+    overflow: hidden;
+}
+
+.course-card--edx .course-card__progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--color-primary);
+    transition: width 0.25s ease;
+}
+
 @media (min-width: 601px) {
     .course-card--edx .course-card__media {
         margin-left: -24px;
@@ -204,88 +211,8 @@
     }
 }
 
-.edx-pagination {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 28px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0, 31, 72, 0.1);
-}
-
-.edx-pagination__arrow {
-    font-family: var(--font-primary);
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1;
-    min-width: 44px;
-    min-height: 44px;
-    padding: 8px 12px;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(21, 83, 172, 0.25);
-    background: var(--color-bg-card);
-    color: var(--color-primary);
-    cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-}
-
-.edx-pagination__arrow:hover:not(:disabled) {
-    background: rgba(0, 106, 255, 0.08);
-    border-color: var(--color-primary);
-}
-
-.edx-pagination__arrow:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-}
-
-.edx-pagination__numbers {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-}
-
-.edx-pagination__num {
-    font-family: var(--font-secondary);
-    font-size: 15px;
-    font-weight: 600;
-    min-width: 40px;
-    min-height: 40px;
-    padding: 6px 10px;
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(21, 83, 172, 0.2);
-    background: var(--color-bg-card);
-    color: var(--color-text);
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.edx-pagination__num:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-}
-
-.edx-pagination__num.is-active {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-    color: #fff;
-    cursor: default;
-}
-
-.edx-pagination__ellipsis {
-    font-family: var(--font-secondary);
-    font-size: 15px;
-    color: var(--color-text-muted);
-    padding: 0 4px;
-    user-select: none;
-}
-
 @media (min-width: 769px) {
-    .edx-page__title {
+    .courses-page__title {
         font-size: 30px;
     }
 }
